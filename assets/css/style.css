@@ -226,6 +226,36 @@ input:focus {
     outline: 0;
 }
 
+.box {
+    background-color: #eee;
+    display: inline-block;
+    width: 4rem;
+    height: 4rem;
+    margin: 0.5rem;
+    border-radius: 0.2rem;
+}
+
+.guess-text {
+    margin: 0.5rem;
+    font-size: 2.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.wrong {
+    color: #333;
+}
+
+.almost {
+    color: orange;
+    border-bottom: 0.3rem solid orange;
+}
+
+.correct {
+    color: green;
+    border-bottom: 0.3rem solid green;
+}
+
 /* Footer */
 
 footer {
