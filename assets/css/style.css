@@ -253,6 +253,12 @@ footer a:hover {
     font-size: 1.4rem;
 }
 
+/* Utility classes */
+
+.display-none {
+    display: none;
+}
+
 /* Media Queries */
 
 @media screen and (max-width: 800px) {
