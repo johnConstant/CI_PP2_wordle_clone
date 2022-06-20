@@ -145,6 +145,70 @@ nav > * {
     font-weight: 500;
 }
 
+/* Footer */
+
+footer {
+    min-height: 15vh;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    /* display: grid;
+    grid-template-columns: 1fr 2fr 1fr; */
+    align-items: center;
+    justify-items: center;
+}
+
+footer ul {
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem;
+    list-style: none;
+}
+
+footer a {
+    padding: 0 10px;
+    text-decoration: none;
+    font-size: 3.6rem;
+    color: white;
+}
+
+footer a:hover {
+    transition: 0.4s ease;
+}
+
+#facebook:hover {
+    color: #4267b2;
+}
+
+#twitter:hover {
+    color: #00acee;
+}
+
+/* https://stackoverflow.com/questions/37751375/instagram-new-logo-css-background */
+/* https://css-tricks.com/snippets/css/gradient-text/ */
+
+#instagram:hover {
+    background: radial-gradient(
+        circle at 30% 107%,
+        #fdf497 0%,
+        #fdf497 5%,
+        #fd5949 45%,
+        #d6249f 60%,
+        #285aeb 90%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+#youtube:hover {
+    color: red;
+}
+
+.footer-links a {
+    font-size: 1.4rem;
+}
+
 /* Media Queries */
 
 @media screen and (max-width: 800px) {
