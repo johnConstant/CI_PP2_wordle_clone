@@ -132,6 +132,20 @@ const updateCounters = () => {
     scoreField.textContent = score;
 };
 
+const getDefinition = async (word) => {
+    let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
+        let definition = await fetch(url)
+            .then((res) => res.json())
+            .then((res) => {
+                console.log(res);
+                if (res.title === 'No Definitions Found') {
+                    return res.message;
+                } else {
+                     return res[0].meanings[0].definitions[0].definition;
+                }
+            });
+}
+
 /**
  * 
  */
