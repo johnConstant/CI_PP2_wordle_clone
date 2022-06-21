@@ -253,6 +253,10 @@ input:focus {
     text-transform: uppercase;
 }
 
+.result-text {
+    font-size: 2.4rem;
+}
+
 .wrong {
     color: #333;
 }

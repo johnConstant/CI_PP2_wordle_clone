@@ -1,9 +1,9 @@
 let state = {
-    wordLength: 6,
+    wordLength: 5,
     currentRd: 0,
     noOfRounds: 5,
     currentGuess: 0,
-    noOfGuesses: 5,
+    noOfGuesses: 6,
     words: [],
     correctAnswer: '', 
     score: 0,   
@@ -61,6 +61,7 @@ const createInputs = () => {
 const startGame = async () => {
     let { words, correctAnswer } = state;
     createInputs();
+    updateCounters();
     state.words = await getWords();
     state.correctAnswer = state.words[0]
 }
@@ -130,7 +131,6 @@ const checkAnswer = async (answer, correctAnswer) => {
      }
 };
 
-
 const updateCounters = () => {
     let { currentRd, noOfRounds, currentGuess, noOfGuesses, score } = state;
     roundNumberField.textContent = `Round: ${currentRd + 1} / ${noOfRounds}`;
@@ -153,14 +153,15 @@ const getDefinition = async (word) => {
             } else {
                 return res[0].meanings[0].definitions[0].definition;
             }
-        });
+        }).catch(err => {
+            console.log(err)});
         return definition
     }
 
 /**
  * 
  */
-const makeGuess = () => {
+const makeGuess = async () => {
     let {currentGuess, noOfGuesses, correctAnswer} = state;
     let answer = getAnswer();
 
@@ -179,13 +180,31 @@ const makeGuess = () => {
         guessBtn.classList.add('display-none');
         formInputs.classList.add('display-none');
         state.correctAnswer = state.words[state.currentRd]
+
+        let definition = await getDefinition(correctAnswer);
+        result.innerHTML = `<p class="result-text">Hard Luck!!!</p>
+            <p>The answer was ${correctAnswer}</p>
+            <p class="definition">${definition}</p>`
     }
+}
+
+const nextRound = () => {
+    if(state.currentRd === state.noOfRounds - 1){
+        alert('Game Over!');
+    }
+    state.currentRd++;
+    state.correctAnswer = state.words[state.currentRd];
+    state.currentGuess = 0;
+
+    nextBtn.classList.add('display-none'); 
+    guessBtn.classList.remove('display-none');
+    formInputs.classList.remove('display-none');
+    guesses.innerHTML = '';
+    result.innerHTML = '';
 }
 
 // Event Handlers
 
 document.addEventListener('DOMContentLoaded', startGame);
 guessBtn.addEventListener('click', makeGuess);
-nextBtn.addEventListener('click', function(){
-    alert('next round')
-});
+nextBtn.addEventListener('click', nextRound);
