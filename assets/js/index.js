@@ -9,8 +9,8 @@ let state = {
     score: 0,   
 };
 
-const startBtn = document.getElementById('#start-btn');
-console.log(startBtn)
+const guessBtn = document.getElementById('guess-btn');
+console.log(guessBtn)
 
 /**
  * 
@@ -38,14 +38,18 @@ const createInputs = () => {
  */
  const getWords = async () => {
     let url = `https://random-word-api.herokuapp.com/word?length=${state.wordLength}&number=${state.noOfRounds}&lang=en`;
-    let { words, correctAnswer } = state;
-    console.log(words);
-
+    let { words } = state;
     words = await fetch(url)
         .then((res) => res.json())
         .then((res) => res);
-        console.log(words);
     return words;
 };
 
-document.addEventListener('DOMContentLoaded', getWords);
+const startGame = async () => {
+    let { words, correctAnswer } = state;
+    createInputs();
+    await getWords();
+    correctAnswer = words[0]
+}
+
+document.addEventListener('DOMContentLoaded', startGame);
