@@ -9,10 +9,11 @@ let state = {
     score: 0,   
 };
 
+
+const guesses = document.querySelector('#guesses');
 const guessBtn = document.getElementById('guess-btn');
 const nextBtn = document.getElementById('next-btn');
-const inputs = document.getElementById('guess-inputs');
-let guesses = document.querySelector('#guesses');
+const formInputs = document.getElementById('guess-inputs');
 
 /**
  * 
@@ -42,8 +43,8 @@ const createInputs = () => {
     let url = `https://random-word-api.herokuapp.com/word?length=${state.wordLength}&number=${state.noOfRounds}&lang=en`;
     let { words } = state;
     words = await fetch(url)
-        .then((res) => res.json())
-        .then((res) => res);
+    .then(response => response.json())
+    .then(data => data);
     return words;
 };
 
@@ -57,7 +58,7 @@ const startGame = async () => {
     let { words, correctAnswer } = state;
     createInputs();
     words = await getWords();
-    correctAnswer = words[0]
+    state.correctAnswer = words[0]
 }
 
 /**
@@ -100,12 +101,16 @@ const makeGuess = () => {
     let answer = getAnswer();
 
     state.currentGuess++;
-    printAnswer(answer, currentGuess);
 
-    if(currentGuess >= noOfGuesses){
+    const inputs = [...document.getElementsByClassName('letter-input')];
+    inputs.forEach((input) => (input.value = ''));
+
+    printAnswer(answer, state.currentGuess);
+
+    if(currentGuess >= noOfGuesses - 1){        
         nextBtn.classList.remove('display-none'); 
         guessBtn.classList.add('display-none');
-        inputs.classList.add('display-none');
+        formInputs.classList.add('display-none');
     }
 }
 
