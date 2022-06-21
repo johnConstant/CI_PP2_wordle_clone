@@ -57,8 +57,8 @@ const createInputs = () => {
 const startGame = async () => {
     let { words, correctAnswer } = state;
     createInputs();
-    words = await getWords();
-    state.correctAnswer = words[0]
+    state.words = await getWords();
+    state.correctAnswer = state.words[0]
 }
 
 /**
