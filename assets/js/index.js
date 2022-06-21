@@ -59,13 +59,28 @@ const startGame = async () => {
     correctAnswer = words[0]
 }
 
+/**
+ * Gets values from text inputs and returns array with users guess
+ * @returns array with answer separated by letter
+ */
+ const getAnswer = () => {
+    let answer = [];
+    for (let i = 0; i < state.wordLength; i++) {
+        let letter = document
+            .getElementById(`input-${i + 1}`)
+            .value.toLowerCase();
+        answer.push(letter);
+    }
+    return answer;
+};
+
 const makeGuess = () => {
-    let {currentGuess, noOfGuesses} = state;
+    let {currentGuess, noOfGuesses, correctAnswer} = state;
+    let answer = getAnswer();
+
     state.currentGuess++
-    // getAnswer();
-    // checkAnswer()
-    // printAnswer();
-    console.log(currentGuess);
+    // printAnswer(answer, guessNo);
+    // checkAnswer(answer, correctAnswer);
 
     if(currentGuess >= noOfGuesses){
         nextBtn.classList.remove('display-none'); 
