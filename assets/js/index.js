@@ -101,8 +101,15 @@ const addClass = (element, className) => {
     document.getElementById(element).classList.add(className);
 };
 
+/**
+ * check user answer array against correct answer array
+ * apply appropriate class on result
+ * @param {array} answer 
+ * @param {string} correctAnswer 
+ */
 const checkAnswer = async (answer, correctAnswer) => {
     let { score, currentRd, currentGuess } = state;
+    console.log(typeof correctAnswer)
     let correctAnswerArray = Array.from(correctAnswer);
 
     for (let i = 0; i < state.wordLength; i++) {
@@ -196,6 +203,7 @@ const nextRound = () => {
     state.correctAnswer = state.words[state.currentRd];
     state.currentGuess = 0;
 
+    updateCounters();
     nextBtn.classList.add('display-none'); 
     guessBtn.classList.remove('display-none');
     formInputs.classList.remove('display-none');
@@ -204,6 +212,23 @@ const nextRound = () => {
 }
 
 // Event Handlers
+
+// https://stackoverflow.com/questions/15595652/focus-next-input-once-reaching-maxlength-value
+document.getElementById('guess-inputs').onkeyup = function (e) {
+    var target = e.srcElement;
+    var maxLength = parseInt(target.attributes['maxlength'].value, 10);
+    var myLength = target.value.length;
+    if (myLength >= maxLength) {
+        var next = target;
+        while ((next = next.nextElementSibling)) {
+            if (next == null) break;
+            if (next.tagName.toLowerCase() == 'input') {
+                next.focus();
+                break;
+            }
+        }
+    }
+};
 
 document.addEventListener('DOMContentLoaded', startGame);
 guessBtn.addEventListener('click', makeGuess);
