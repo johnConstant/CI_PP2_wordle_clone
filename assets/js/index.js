@@ -1,6 +1,6 @@
 let state = {
     wordLength: 6,
-    currentRd: 1,
+    currentRd: 0,
     noOfRounds: 5,
     currentGuess: 0,
     noOfGuesses: 5,
@@ -14,6 +14,9 @@ const guesses = document.querySelector('#guesses');
 const guessBtn = document.getElementById('guess-btn');
 const nextBtn = document.getElementById('next-btn');
 const formInputs = document.getElementById('guess-inputs');
+let roundNumberField = document.querySelector('#rounds');
+let guessNumberField = document.querySelector('#guess-counter');
+let scoreField = document.querySelector('#score');
 
 /**
  * 
@@ -113,16 +116,25 @@ const checkAnswer = (answer, correctAnswer) => {
 
     if (answer.join('') === correctAnswer) {
         alert('you win!');
-        currentRd++;
-        score += 20;
-        nextRound();
-    }
+        state.currentRd++;
+        state.score += 20;
+        document.getElementsByClassName('correct-answer')[0].textContent = "Well Done!!!";
+        nextBtn.classList.remove('display-none'); 
+        guessBtn.classList.add('display-none');
+        formInputs.classList.add('display-none');    }
+};
+
+
+const updateCounters = () => {
+    let { currentRd, noOfRounds, currentGuess, noOfGuesses, score } = state;
+    roundNumberField.textContent = `Round: ${currentRd + 1} / ${noOfRounds}`;
+    guessNumberField.textContent = `Guess: ${currentGuess} / ${noOfGuesses}`;
+    scoreField.textContent = score;
 };
 
 /**
  * 
  */
-
 const makeGuess = () => {
     let {currentGuess, noOfGuesses, correctAnswer} = state;
     let answer = getAnswer();
@@ -135,10 +147,13 @@ const makeGuess = () => {
     printAnswer(answer, state.currentGuess);
     checkAnswer(answer, state.correctAnswer);
 
+    updateCounters();
+
     if(currentGuess >= noOfGuesses - 1){        
         nextBtn.classList.remove('display-none'); 
         guessBtn.classList.add('display-none');
         formInputs.classList.add('display-none');
+        state.correctAnswer = state.words[state.currentRd]
     }
 }
 
