@@ -92,6 +92,33 @@ const startGame = async () => {
     guesses.innerHTML += html;
 };
 
+const addClass = (element, className) => {
+    document.getElementById(element).classList.add(className);
+};
+
+const checkAnswer = (answer, correctAnswer) => {
+    let { score, currentRd, currentGuess } = state;
+    let correctAnswerArray = Array.from(correctAnswer);
+
+    for (let i = 0; i < state.wordLength; i++) {
+        if (answer[i] === correctAnswerArray[i]) {
+            addClass(`letter-${i + 1}-${currentGuess}`, 'correct');
+        } else if (correctAnswerArray.includes(answer[i])) {
+            document;
+            addClass(`letter-${i + 1}-${currentGuess}`, 'almost');
+        } else {
+            addClass(`letter-${i + 1}-${currentGuess}`, 'wrong');
+        }
+    }
+
+    if (answer.join('') === correctAnswer) {
+        alert('you win!');
+        currentRd++;
+        score += 20;
+        nextRound();
+    }
+};
+
 /**
  * 
  */
@@ -106,6 +133,7 @@ const makeGuess = () => {
     inputs.forEach((input) => (input.value = ''));
 
     printAnswer(answer, state.currentGuess);
+    checkAnswer(answer, state.correctAnswer);
 
     if(currentGuess >= noOfGuesses - 1){        
         nextBtn.classList.remove('display-none'); 

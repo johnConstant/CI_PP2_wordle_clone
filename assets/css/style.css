@@ -327,6 +327,22 @@ input:focus {
   opacity: .5;
  }
 
+ /* Conditional answer classes */
+ 
+ .wrong {
+    color: #333;
+}
+
+.almost {
+    color: orange;
+    border-bottom: 0.3rem solid orange;
+}
+
+.correct {
+    color: green;
+    border-bottom: 0.3rem solid green;
+}
+
 /* Footer */
 
 footer {
