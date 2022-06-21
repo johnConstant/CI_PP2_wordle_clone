@@ -234,6 +234,7 @@ input:focus {
 
 .box {
     background-color: #eee;
+    color: #333;
     display: inline-block;
     width: 4rem;
     height: 4rem;

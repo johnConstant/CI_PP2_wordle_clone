@@ -12,6 +12,7 @@ let state = {
 const guessBtn = document.getElementById('guess-btn');
 const nextBtn = document.getElementById('next-btn');
 const inputs = document.getElementById('guess-inputs');
+let guesses = document.querySelector('#guesses');
 
 /**
  * 
@@ -74,13 +75,32 @@ const startGame = async () => {
     return answer;
 };
 
+/**
+ * Prints each letter from guess in individual span.
+ * Individual spans allow for individual classes :- correct, almost
+ * @param {array} of letters from user's answer
+ */
+ const printAnswer = (answer, currentGuess) => {
+    let html = `<div id = 'guesss-${currentGuess}' class="guess-text">`;
+    answer.forEach((letter, i) => {
+        html += `<div class='box' id="letter-${
+            i + 1
+        }-${currentGuess}">${letter}</div>`;
+    });
+    html += `</div`;
+    guesses.innerHTML += html;
+};
+
+/**
+ * 
+ */
+
 const makeGuess = () => {
     let {currentGuess, noOfGuesses, correctAnswer} = state;
     let answer = getAnswer();
 
-    state.currentGuess++
-    // printAnswer(answer, guessNo);
-    // checkAnswer(answer, correctAnswer);
+    state.currentGuess++;
+    printAnswer(answer, currentGuess);
 
     if(currentGuess >= noOfGuesses){
         nextBtn.classList.remove('display-none'); 
