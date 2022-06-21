@@ -14,9 +14,10 @@ const guesses = document.querySelector('#guesses');
 const guessBtn = document.getElementById('guess-btn');
 const nextBtn = document.getElementById('next-btn');
 const formInputs = document.getElementById('guess-inputs');
-let roundNumberField = document.querySelector('#rounds');
-let guessNumberField = document.querySelector('#guess-counter');
-let scoreField = document.querySelector('#score');
+const roundNumberField = document.querySelector('#rounds');
+const guessNumberField = document.querySelector('#guess-counter');
+const scoreField = document.querySelector('#score');
+const result = document.querySelector('#result'); 
 
 /**
  * 
@@ -99,7 +100,7 @@ const addClass = (element, className) => {
     document.getElementById(element).classList.add(className);
 };
 
-const checkAnswer = (answer, correctAnswer) => {
+const checkAnswer = async (answer, correctAnswer) => {
     let { score, currentRd, currentGuess } = state;
     let correctAnswerArray = Array.from(correctAnswer);
 
@@ -115,13 +116,18 @@ const checkAnswer = (answer, correctAnswer) => {
     }
 
     if (answer.join('') === correctAnswer) {
-        alert('you win!');
         state.currentRd++;
         state.score += 20;
-        document.getElementsByClassName('correct-answer')[0].textContent = "Well Done!!!";
+        // Display/Hide btns
         nextBtn.classList.remove('display-none'); 
         guessBtn.classList.add('display-none');
-        formInputs.classList.add('display-none');    }
+        formInputs.classList.add('display-none');   
+        // Get definition and print value
+        let definition = await getDefinition(correctAnswer);
+        result.innerHTML = `<p class="result-text">Well Done!!!</p>
+            <p class="definition">${definition}</p>`
+
+     }
 };
 
 
@@ -132,19 +138,24 @@ const updateCounters = () => {
     scoreField.textContent = score;
 };
 
+/**
+ * Get definition of parameter from dictionaryapi.dev and return first definition or error message 
+ * @param {string} word - search term for API query
+ */
 const getDefinition = async (word) => {
     let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
-        let definition = await fetch(url)
-            .then((res) => res.json())
-            .then((res) => {
-                console.log(res);
-                if (res.title === 'No Definitions Found') {
-                    return res.message;
-                } else {
-                     return res[0].meanings[0].definitions[0].definition;
-                }
-            });
-}
+    let definition = await fetch(url)
+        .then((res) => res.json())
+        .then((res) => {
+            console.log(res[0].meanings[0].definitions[0].definition);
+            if (res.title === 'No Definitions Found') {
+                return res.message;
+            } else {
+                return res[0].meanings[0].definitions[0].definition;
+            }
+        });
+        return definition
+    }
 
 /**
  * 
