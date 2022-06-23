@@ -207,6 +207,18 @@ header h1 {
 
 }
 
+#progress-bar {
+	border: 0.3rem solid #56a5eb;
+	height: 4rem;
+	width: 20rem;
+}
+
+#progress-full {
+	height: 3.4rem;
+	background-color: #56a5eb;
+	width: 0%;
+}
+
 input {
     width: 4rem;
     height: 4rem;

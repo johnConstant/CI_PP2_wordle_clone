@@ -1,7 +1,6 @@
 let data = localStorage.getItem('state');
 let state = JSON.parse(data);
 
-
 const guesses = document.querySelector('#guesses');
 const guessBtn = document.getElementById('guess-btn');
 const nextBtn = document.getElementById('next-btn');
