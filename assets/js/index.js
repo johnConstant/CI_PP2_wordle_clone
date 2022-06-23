@@ -51,7 +51,7 @@ const createInputs = () => {
     words = await fetch(url)
     .then(response => response.json())
     .then(data => data);
-
+    // remove spinner when words have been fetched
     document.getElementsByClassName('loader')[0].classList.add('display-none');
     document.getElementById('game-container').classList.remove('display-none');
     
@@ -72,7 +72,7 @@ const startGame = async () => {
 
     state.words = await getWords();
     state.correctAnswer = state.words[0];
-
+    // Update UI
     createInputs();
     updateCounters();
     formInputs.classList.remove('display-none')

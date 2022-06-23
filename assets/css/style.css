@@ -150,8 +150,7 @@ nav > * {
 /* Container */
 .container {
     width: 100%;
-    height:85vh;
-    
+    height:70vh;
     display: grid;
     grid-template-columns: 1fr;
     justify-content: center;
@@ -186,7 +185,6 @@ header h1 {
     color: var(--almost);
     transition: 0.8s ease;
 }
-
 
 /* Game Page */
 
@@ -297,12 +295,12 @@ input:focus {
     -webkit-text-fill-color: transparent;
 }
 
-#spinner {
+.spinner {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
+/* https://cssloaders.github.io/ */
 .loader {
     width: 48px;
     height: 48px;
@@ -327,6 +325,14 @@ input:focus {
     border-left: 4px solid var(--red);
     border-bottom: 4px solid transparent;
     animation: rotation 0.5s linear infinite reverse;
+}
+
+/* Settings Page */
+
+#settings-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 
 /* Guess/Next Round buttons */
@@ -480,13 +486,23 @@ footer a:hover {
         text-align: center;
         padding-left: 0;
     }
+
+    .container {
+        height:65vh;
+    }
 }
 
 @media screen and (max-width: 360px) {
     html {
         font-size: 50%;
     }
-
+    section {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .container {
+        height:55vh;
+    }
     #game-container {
         width: 90%;
     }
