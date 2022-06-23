@@ -13,10 +13,8 @@ const updateSettings = () => {
     let length = document.getElementById('no-of-letters').value;
     let rounds = document.getElementById('no-of-rounds').value;
     console.log(length, rounds);
-
-    return {...state, wordLength: length, noOfRounds: rounds}
+    let newState = {...state, wordLength: length, noOfRounds: rounds}
+    localStorage.setItem('state', newState);
 }
 
-let numberInputs = [...document.getElementsByTagName('input')];
-console.log(numberInputs);
-numberInputs.forEach(input => input.addEventListener('onchange', updateSettings));
+document.getElementById('start-btn').addEventListener('click', updateSettings)
