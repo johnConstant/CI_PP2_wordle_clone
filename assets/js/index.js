@@ -15,6 +15,7 @@ const guessBtn = document.getElementById('guess-btn');
 const nextBtn = document.getElementById('next-btn');
 const newGameBtn = document.getElementById('new-game-btn');
 const formInputs = document.getElementById('guess-inputs');
+const textInputs = document.getElementById('guess-inputs')
 const roundNumberField = document.querySelector('#rounds');
 const guessNumberField = document.querySelector('#guess-counter');
 const scoreField = document.querySelector('#score');
@@ -35,7 +36,7 @@ const createInputs = () => {
             maxlength="1"
             required
         /> `;
-        document.getElementById('guess-inputs').innerHTML += inputHTML;
+        textInputs.innerHTML += inputHTML;
     }
     return;
 };
@@ -61,12 +62,21 @@ const createInputs = () => {
  */
 const startGame = async () => {
     let { words, correctAnswer } = state;
-    createInputs();
-    updateCounters();
+    alert('startingGame')
+ 
     state.score = 0;
+    state.currentRd = 0;
+    state.currentGuess = 0;
+
     state.words = await getWords();
     state.correctAnswer = state.words[0];
+
+    createInputs();
+    updateCounters();
+    formInputs.classList.remove('display-none')
     newGameBtn.classList.add('display-none');
+    guessBtn.classList.remove('display-none');
+    result.innerHTML = '';
 }
 
 /**
@@ -196,10 +206,9 @@ const makeGuess = async () => {
 }
 
 const nextRound = () => {
-    if(state.currentRd === state.noOfRounds){
+    if(state.currentRd === state.noOfRounds - 1){
         result.innerHTML = `<p>Well done! Your score is</p><p class='score'>${state.score}</p>`
         nextBtn.classList.add('display-none');
-        guesses.classList.add('display')
         formInputs.classList.add('display-none');
         newGameBtn.classList.remove('display-none');
         let inputs = [...document.getElementsByClassName('letter-input')];
