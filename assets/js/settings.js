@@ -9,12 +9,13 @@ let state = {
         score: 0,   
     };
 
-const updateSettings = () => {
+const updateSettings = (e) => {
+    e.preventDefault();
     let length = document.getElementById('no-of-letters').value;
     let rounds = document.getElementById('no-of-rounds').value;
     console.log(length, rounds);
     let newState = {...state, wordLength: length, noOfRounds: rounds}
-    localStorage.setItem('state', newState);
+    localStorage.setItem('state', JSON.stringify(newState));
 }
 
 document.getElementById('start-btn').addEventListener('click', updateSettings)
