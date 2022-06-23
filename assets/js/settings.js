@@ -10,7 +10,6 @@ let state = {
     };
 
 const updateSettings = (e) => {
-    e.preventDefault();
     let length = document.getElementById('no-of-letters').value;
     let rounds = document.getElementById('no-of-rounds').value;
     console.log(length, rounds);

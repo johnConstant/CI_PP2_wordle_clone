@@ -1,13 +1,5 @@
-let state = {
-    wordLength: 5,
-    currentRd: 0,
-    noOfRounds: 2,
-    currentGuess: 0,
-    noOfGuesses: 3,
-    words: [],
-    correctAnswer: '', 
-    score: 0,   
-};
+let data = localStorage.getItem('state');
+let state = JSON.parse(data);
 
 
 const guesses = document.querySelector('#guesses');
