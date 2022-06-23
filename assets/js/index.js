@@ -177,6 +177,8 @@ const makeGuess = async () => {
     let answer = getAnswer();
 
     state.currentGuess++;
+    const progressBar = document.querySelector('#progress-full');
+    progressBar.style.width = `${((currentGuess + 1) / noOfGuesses) * 100}%`;
 
     const inputs = [...document.getElementsByClassName('letter-input')];
     inputs.forEach((input) => (input.value = ''));

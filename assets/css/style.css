@@ -208,14 +208,14 @@ header h1 {
 }
 
 #progress-bar {
-	border: 0.3rem solid #56a5eb;
-	height: 4rem;
-	width: 20rem;
+	border: 0.2rem solid var(--red);
+	height: 1rem;
+	margin: 2rem;
 }
 
 #progress-full {
-	height: 3.4rem;
-	background-color: #56a5eb;
+	height: 0.6rem;
+	background-color: var(--red);
 	width: 0%;
 }
 
