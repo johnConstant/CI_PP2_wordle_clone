@@ -90,6 +90,11 @@ button:active {
     color: var(--almost);
 }
 
+section {
+    width: 70%;
+    margin: 0 auto;
+}
+
 /* Navigation */
 
 nav {

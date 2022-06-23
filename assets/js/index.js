@@ -10,6 +10,7 @@ const textInputs = document.getElementById('guess-inputs')
 const roundNumberField = document.querySelector('#rounds');
 const guessNumberField = document.querySelector('#guess-counter');
 const scoreField = document.querySelector('#score');
+const progressBar = document.querySelector('#progress-full');
 const result = document.querySelector('#result'); 
 
 /**
@@ -64,6 +65,7 @@ const startGame = async () => {
     state.words = await getWords();
     state.correctAnswer = state.words[0];
     // Update UI
+    progressBar.style.width = `0%`;
     createInputs();
     updateCounters();
     formInputs.classList.remove('display-none')
@@ -177,7 +179,6 @@ const makeGuess = async () => {
     let answer = getAnswer();
 
     state.currentGuess++;
-    const progressBar = document.querySelector('#progress-full');
     progressBar.style.width = `${((currentGuess + 1) / noOfGuesses) * 100}%`;
 
     const inputs = [...document.getElementsByClassName('letter-input')];
@@ -210,6 +211,8 @@ const nextRound = () => {
         let inputs = [...document.getElementsByClassName('letter-input')];
         inputs.forEach((input) => input.remove());
         guesses.innerHTML = '';
+        progressBar.style.width = `0%`;
+
         return;
     }
     // Update state values
