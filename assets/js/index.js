@@ -51,6 +51,10 @@ const createInputs = () => {
     words = await fetch(url)
     .then(response => response.json())
     .then(data => data);
+
+    document.getElementsByClassName('loader')[0].classList.add('display-none');
+    document.getElementById('game-container').classList.remove('display-none');
+    
     return words;
 };
 
@@ -61,9 +65,7 @@ const createInputs = () => {
  * set correct answer for 1st round from words array
  */
 const startGame = async () => {
-    let { words, correctAnswer } = state;
-    alert('startingGame')
- 
+    let { words, correctAnswer } = state; 
     state.score = 0;
     state.currentRd = 0;
     state.currentGuess = 0;

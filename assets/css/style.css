@@ -1,12 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;700&display=swap');
 
 :root {
-    --navy: #eee;
+    --white: #eee;
+    --red: #FF4742;
     --almost: #eb703f;
     --correct: green;
     --box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4);
     --text-shadow-dark: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.7);
     --text-shadow-light: 0.1rem 0.1rem 0.3rem rgba(0, 0, 0, 0.5);
+
+    --gradient: -webkit-linear-gradient(
+        45deg,
+        var(--red) 0%,
+        var(--almost) 51%,
+        var(--red) 100%
+    )
 }
 
 * {
@@ -24,7 +32,7 @@ body {
     font-weight: 300;
     font-size: 1.6rem;
     line-height: 1.5;
-    color: var(--navy);
+    color: var(--white);
     background-color: #333;
 }
 
@@ -35,7 +43,7 @@ h4,
 h5,
 h6 {
     font-family: 'Plus Jakarta Sans', cursive;
-    color: var(--navy);
+    color: var(--white);
     margin-bottom: 2.5rem;
 }
 
@@ -49,7 +57,7 @@ a {
     margin: 1.6rem;
     text-align: center;
     letter-spacing: 0.2rem;
-    color:#eee;
+    color:var(--white);
 }
 
 ul {
@@ -60,7 +68,7 @@ button {
     border: 0;
     padding: 1.6rem 3.2rem 1.6rem 3.2rem;
     background-color: var(--almost);
-    color: var(--navy);
+    color: var(--white);
     font-size: 1.6rem;
     line-height: 1.5;
     font-weight: 500;
@@ -103,7 +111,7 @@ nav > * {
 
 .logo a {
     font-family: 'Plus Jakarta Sans', cursive;
-    color: white;
+    color: var(--white);
     font-weight: 700;
     font-size: 5rem;
     letter-spacing: 0.5rem;
@@ -118,16 +126,11 @@ nav > * {
 .nav-links a {
     padding: 0 10px;
     text-decoration: none;
-    color: white;
+    color: var();
 }
 
 .nav-links a:hover {
-    background: -webkit-linear-gradient(
-        45deg,
-        #ff512f 0%,
-        #f09819 51%,
-        #ff512f 100%
-    );
+    background: var(--gradient);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -137,7 +140,7 @@ nav > * {
 }
 
 #active {
-    background: -webkit-linear-gradient(#ff512f 0%, #f09819 51%, #ff512f 100%);
+    background: var(--gradient);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -175,12 +178,7 @@ header h1 {
 
 .btn-container a:hover {
     text-decoration: none;
-    background: -webkit-linear-gradient(
-        45deg,
-        #ff512f 0%,
-        #f09819 51%,
-        #ff512f 100%
-    );
+    background: var(--gradient);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -221,7 +219,7 @@ input {
     border-radius: 0.3rem;
     font-size: 2.4rem;
     text-align: center;
-    background-color: #eee;
+    background-color: var(--white);
     color: #222;
     text-transform: uppercase;
 }
@@ -234,7 +232,7 @@ input:focus {
 }
 
 .box {
-    background-color: #eee;
+    background-color: var(--white);
     color: #333;
     display: inline-block;
     width: 4rem;
@@ -293,18 +291,25 @@ input:focus {
     text-transform: none;
     margin: 0;
     letter-spacing: 0;
-    background: -webkit-linear-gradient(#ff512f 0%, #f09819 51%, #ff512f 100%);
+    background: -webkit-linear-gradient(var(--red) 0%, var(--almost) 51%, var(--red) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
+#spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .loader {
     width: 48px;
     height: 48px;
+    margin: 0 auto;
     border-radius: 50%;
     display: inline-block;
-    border-top: 4px solid #FFF;
+    border-top: 4px solid var(--white);
     border-right: 4px solid transparent;
     box-sizing: border-box;
     animation: rotation 1s linear infinite;
@@ -319,7 +324,7 @@ input:focus {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    border-left: 4px solid #FF3D00;
+    border-left: 4px solid var(--red);
     border-bottom: 4px solid transparent;
     animation: rotation 0.5s linear infinite reverse;
 }
@@ -327,8 +332,8 @@ input:focus {
 /* Guess/Next Round buttons */
 
 .game-btn {
-  background: #FF4742;
-  border: 1px solid #FF4742;
+  background: var(--red);
+  border: 1px solid var(--red);
   border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
   box-sizing: border-box;
@@ -356,7 +361,7 @@ input:focus {
 .game-btn:active {
   background-color: initial;
   background-position: 0 0;
-  color: #FF4742;
+  color: var(--red);
 }
 
 .game-btn:active {
@@ -370,8 +375,8 @@ input:focus {
 }
 
 .almost {
-    color: orange;
-    border-bottom: 0.3rem solid orange;
+    color: var(--almost);
+    border-bottom: 0.3rem solid var(--almost);
 }
 
 .correct {
