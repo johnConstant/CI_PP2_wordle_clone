@@ -1,9 +1,9 @@
 let state = {
     wordLength: 5,
     currentRd: 0,
-    noOfRounds: 5,
+    noOfRounds: 2,
     currentGuess: 0,
-    noOfGuesses: 6,
+    noOfGuesses: 3,
     words: [],
     correctAnswer: '', 
     score: 0,   
@@ -13,6 +13,7 @@ let state = {
 const guesses = document.querySelector('#guesses');
 const guessBtn = document.getElementById('guess-btn');
 const nextBtn = document.getElementById('next-btn');
+const newGameBtn = document.getElementById('new-game-btn');
 const formInputs = document.getElementById('guess-inputs');
 const roundNumberField = document.querySelector('#rounds');
 const guessNumberField = document.querySelector('#guess-counter');
@@ -62,8 +63,10 @@ const startGame = async () => {
     let { words, correctAnswer } = state;
     createInputs();
     updateCounters();
+    state.score = 0;
     state.words = await getWords();
-    state.correctAnswer = state.words[0]
+    state.correctAnswer = state.words[0];
+    newGameBtn.classList.add('display-none');
 }
 
 /**
@@ -109,7 +112,6 @@ const addClass = (element, className) => {
  */
 const checkAnswer = async (answer, correctAnswer) => {
     let { score, currentRd, currentGuess } = state;
-    console.log(typeof correctAnswer)
     let correctAnswerArray = Array.from(correctAnswer);
 
     for (let i = 0; i < state.wordLength; i++) {
@@ -124,7 +126,6 @@ const checkAnswer = async (answer, correctAnswer) => {
     }
 
     if (answer.join('') === correctAnswer) {
-        state.currentRd++;
         state.score += 20;
         // Display/Hide btns
         nextBtn.classList.remove('display-none'); 
@@ -154,7 +155,6 @@ const getDefinition = async (word) => {
     let definition = await fetch(url)
         .then((res) => res.json())
         .then((res) => {
-            console.log(res[0].meanings[0].definitions[0].definition);
             if (res.title === 'No Definitions Found') {
                 return res.message;
             } else {
@@ -196,13 +196,22 @@ const makeGuess = async () => {
 }
 
 const nextRound = () => {
-    if(state.currentRd === state.noOfRounds - 1){
-        alert('Game Over!');
+    if(state.currentRd === state.noOfRounds){
+        result.innerHTML = `<p>Well done! Your score is</p><p class='score'>${state.score}</p>`
+        nextBtn.classList.add('display-none');
+        guesses.classList.add('display')
+        formInputs.classList.add('display-none');
+        newGameBtn.classList.remove('display-none');
+        let inputs = [...document.getElementsByClassName('letter-input')];
+        inputs.forEach((input) => input.remove());
+        guesses.innerHTML = '';
+        return;
     }
+    // Update state values
     state.currentRd++;
     state.correctAnswer = state.words[state.currentRd];
     state.currentGuess = 0;
-
+    // Update UI
     updateCounters();
     nextBtn.classList.add('display-none'); 
     guessBtn.classList.remove('display-none');
@@ -233,3 +242,4 @@ document.getElementById('guess-inputs').onkeyup = function (e) {
 document.addEventListener('DOMContentLoaded', startGame);
 guessBtn.addEventListener('click', makeGuess);
 nextBtn.addEventListener('click', nextRound);
+newGameBtn.addEventListener('click', startGame)
