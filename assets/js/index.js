@@ -137,6 +137,7 @@ const checkAnswer = async (answer, correctAnswer) => {
 
     if (answer.join('') === correctAnswer) {
         state.score += 20;
+        document.getElementById("myAudio").play(); 
         // Display/Hide btns
         nextBtn.classList.remove('display-none'); 
         guessBtn.classList.add('display-none');
