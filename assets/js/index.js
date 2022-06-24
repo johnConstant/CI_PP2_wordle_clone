@@ -110,7 +110,11 @@ const startGame = async () => {
     html += `</div`;
     guesses.innerHTML += html;
 };
-
+/**
+ * Add CSS class to HTML element
+ * @param {HTML element} element 
+ * @param {class name} className 
+ */
 const addClass = (element, className) => {
     document.getElementById(element).classList.add(className);
 };
@@ -129,7 +133,6 @@ const checkAnswer = async (answer, correctAnswer) => {
         if (answer[i] === correctAnswerArray[i]) {
             addClass(`letter-${i + 1}-${currentGuess}`, 'correct');
         } else if (correctAnswerArray.includes(answer[i])) {
-            document;
             addClass(`letter-${i + 1}-${currentGuess}`, 'almost');
         } else {
             addClass(`letter-${i + 1}-${currentGuess}`, 'wrong');
@@ -137,9 +140,10 @@ const checkAnswer = async (answer, correctAnswer) => {
     }
 
     if (answer.join('') === correctAnswer) {
+        // Calculate and update score
         let roundScore = (state.noOfGuesses - state.currentGuess) * 20;
         state.score += roundScore;
-
+        // Play winning sound effect
         document.getElementById("myAudio").play(); 
         // Display/Hide btns
         nextBtn.classList.remove('display-none'); 
@@ -185,24 +189,26 @@ const getDefinition = async (word) => {
 const makeGuess = async () => {
     let {currentGuess, noOfGuesses, correctAnswer} = state;
     let answer = getAnswer();
-
+    // Increment guess
     state.currentGuess++;
+    // Update progress bar when guess number has been incremented
     progressBar.style.width = `${((currentGuess + 1) / noOfGuesses) * 100}%`;
-
+    // Clear inputs
     const inputs = [...document.getElementsByClassName('letter-input')];
     inputs.forEach((input) => (input.value = ''));
-
+    // Run Print and Check answer functions
     printAnswer(answer, state.currentGuess);
     checkAnswer(answer, state.correctAnswer);
-
+    // Update UI
     updateCounters();
-
-    if(currentGuess >= noOfGuesses - 1){        
+    // Check if any guesses remain
+    if(currentGuess >= noOfGuesses - 1){      
+        // Update UI  
         nextBtn.classList.remove('display-none'); 
         guessBtn.classList.add('display-none');
         formInputs.classList.add('display-none');
         state.correctAnswer = state.words[state.currentRd]
-
+        // Get and display definition of answer
         let definition = await getDefinition(correctAnswer);
         result.innerHTML = `<p class="result-text">Hard Luck!!!</p>
             <p>The answer was ${correctAnswer}</p>
@@ -212,14 +218,14 @@ const makeGuess = async () => {
 
 const nextRound = () => {
     if(state.currentRd === state.noOfRounds - 1){
-        result.innerHTML = `<p>Well done! Your score is</p><p class='score'>${state.score}</p>`
+        result.innerHTML = `<p>Game Over!</p><p>${state.score < 100 ? 'Keep practising. ' : state.score < 200 ? 'Well done. ' : 'Excellent! '}Your score is</p><p class='score'>${state.score}</p>`
         nextBtn.classList.add('display-none');
         formInputs.classList.add('display-none');
         newGameBtn.classList.remove('display-none');
         let inputs = [...document.getElementsByClassName('letter-input')];
         inputs.forEach((input) => input.remove());
         guesses.innerHTML = '';
-        progressBar.style.width = `0%`;
+        progressBar.style.width = "0%";
 
         return;
     }
