@@ -271,6 +271,10 @@ input:focus {
     font-size: 2.4rem;
 }
 
+#result p.score {
+    font-size: 7.2rem;
+}
+
 .wrong {
     color: #333;
 }
@@ -350,6 +354,10 @@ input:focus {
     display: flex;
     flex-direction: column;
     text-align: center;
+}
+
+.settings-input {
+    margin: 1rem;
 }
 
 /* Guess/Next Round buttons */
@@ -507,6 +515,23 @@ footer a:hover {
     .container {
         height:65vh;
     }
+
+    #game-container {
+        width: 91%;
+        min-height: 59vh;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    html {
+        font-size: 56.25%;
+    }
+    input {
+        width: 3rem;
+        height: 3rem;
+        padding: 0.3rem;
+        margin: 0.2rem;
+    }
 }
 
 @media screen and (max-width: 360px) {
@@ -519,8 +544,5 @@ footer a:hover {
     }
     .container {
         height:55vh;
-    }
-    #game-container {
-        width: 90%;
     }
 }
