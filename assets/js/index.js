@@ -137,7 +137,9 @@ const checkAnswer = async (answer, correctAnswer) => {
     }
 
     if (answer.join('') === correctAnswer) {
-        state.score += 20;
+        let roundScore = (state.noOfGuesses - state.currentGuess) * 20;
+        state.score += roundScore;
+
         document.getElementById("myAudio").play(); 
         // Display/Hide btns
         nextBtn.classList.remove('display-none'); 
