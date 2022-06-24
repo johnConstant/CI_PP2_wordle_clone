@@ -10,10 +10,11 @@ let state = {
     };
 
 const updateSettings = () => {
-    let length = document.getElementById('no-of-letters').value;
-    let rounds = document.getElementById('no-of-rounds').value;
+    let length = parseInt(document.getElementById('no-of-letters').value);
+    let rounds = parseInt(document.getElementById('no-of-rounds').value);
+    let guesses = parseInt(document.getElementById('difficulty').value);
     console.log(length, rounds);
-    let newState = {...state, wordLength: length, noOfRounds: rounds}
+    let newState = {...state, wordLength: length, noOfRounds: rounds, noOfGuesses: guesses}
     localStorage.setItem('state', JSON.stringify(newState));
 }
 
