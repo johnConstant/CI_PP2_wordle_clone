@@ -1,5 +1,14 @@
 let data = localStorage.getItem('state');
-let state = JSON.parse(data);
+let state = data ? JSON.parse(data) : {
+    wordLength: 5,
+    currentRd: 0,
+    noOfRounds: 2,
+    currentGuess: 0,
+    noOfGuesses: 5,
+    words: [],
+    correctAnswer: '', 
+    score: 0,   
+};;
 
 const guesses = document.querySelector('#guesses');
 const guessBtn = document.getElementById('guess-btn');
@@ -58,10 +67,7 @@ const createInputs = () => {
  */
 const startGame = async () => {
     let { words, correctAnswer } = state; 
-    state.score = 0;
-    state.currentRd = 0;
-    state.currentGuess = 0;
-
+    state = JSON.parse(data);
     state.words = await getWords();
     state.correctAnswer = state.words[0];
     // Update UI
