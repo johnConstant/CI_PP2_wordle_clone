@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wordle clone</title>
-    <script
-            src="https://kit.fontawesome.com/4aecc09291.js"
-            crossorigin="anonymous"
-        ></script>
+    <title>Wordle</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico"/>
+    <script src="https://kit.fontawesome.com/4aecc09291.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -28,11 +27,20 @@
         <div id="settings-container">
             <div class="settings-input">
                 <label for="no-of-letters">No. of letters:</label>
-                <input type="number" id="no-of-letters" min="4" max="8" value="5" />
+                <input type="number" id="no-of-letters" min="4" max="8" />
             </div>
             <div class="settings-input">
                 <label for="no-of-rounds">No. of rounds:</label>
-                <input type="number" id="no-of-rounds" min="1" max="10" value="5" />
+                <input type="number" id="no-of-rounds" min="1" max="10" />
+            </div>
+            <div class="settings-input">
+                <label for="difficulty">Difficulty:</label>
+                <select id="difficulty" name="difficulty">
+                    <option value="7">Easy</option>
+                    <option value="6">Medium</option>
+                    <option value="5">Hard</option>
+                    <option value="4">Expert</option>
+                  </select>
             </div>
             <a href="game.html" id="start-btn" class="game-btn">Start game</a>
         </div>
