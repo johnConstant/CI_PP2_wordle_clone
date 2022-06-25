@@ -154,7 +154,6 @@ const checkAnswer = async (answer, correctAnswer) => {
         let definition = await getDefinition(correctAnswer);
         result.innerHTML = `<p class="result-text">Well Done!!!</p>
             <p class="definition">${definition}</p>`
-
      }
 };
 
@@ -183,7 +182,6 @@ const getDefinition = async (word) => {
             console.log(err)});
         return definition
     }
-
 /**
  * 
  */
@@ -216,7 +214,10 @@ const makeGuess = async () => {
             <p class="definition">${definition}</p>`
     }
 }
-
+/**
+ * 
+ * @returns 
+ */
 const nextRound = () => {
     if(state.currentRd === state.noOfRounds - 1){
         result.innerHTML = `<p>Game Over!</p><p>${state.score < 100 ? 'Keep practising. ' : state.score < 200 ? 'Well done. ' : 'Excellent! '}Your score is</p><p class='score'>${state.score}</p>`
@@ -227,7 +228,6 @@ const nextRound = () => {
         inputs.forEach((input) => input.remove());
         guesses.innerHTML = '';
         progressBar.style.width = "0%";
-
         return;
     }
     // Update state values
@@ -242,27 +242,26 @@ const nextRound = () => {
     guesses.innerHTML = '';
     result.innerHTML = '';
 }
-
 // Event Handlers
-
-// https://stackoverflow.com/questions/15595652/focus-next-input-once-reaching-maxlength-value
-document.getElementById('guess-inputs').onkeyup = function (e) {
-    var target = e.srcElement;
-    var maxLength = parseInt(target.attributes['maxlength'].value, 10);
-    var myLength = target.value.length;
-    if (myLength >= maxLength) {
-        var next = target;
-        while ((next = next.nextElementSibling)) {
-            if (next == null) break;
-            if (next.tagName.toLowerCase() == 'input') {
-                next.focus();
-                break;
+document.addEventListener('DOMContentLoaded', () => {
+    // https://stackoverflow.com/questions/15595652/focus-next-input-once-reaching-maxlength-value
+    document.getElementById('guess-inputs').onkeyup = function (e) {
+        var target = e.srcElement;
+        var maxLength = parseInt(target.attributes['maxlength'].value, 10);
+        var myLength = target.value.length;
+        if (myLength >= maxLength) {
+            var next = target;
+            while ((next = next.nextElementSibling)) {
+                if (next == null) break;
+                if (next.tagName.toLowerCase() == 'input') {
+                    next.focus();
+                    break;
+                }
             }
         }
-    }
-};
-
-document.addEventListener('DOMContentLoaded', startGame);
-guessBtn.addEventListener('click', makeGuess);
-nextBtn.addEventListener('click', nextRound);
-newGameBtn.addEventListener('click', startGame)
+    };
+    startGame();
+    guessBtn.addEventListener('click', makeGuess);
+    nextBtn.addEventListener('click', nextRound);
+    newGameBtn.addEventListener('click', startGame);
+})
