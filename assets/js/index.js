@@ -8,7 +8,7 @@ let state = data ? JSON.parse(data) : {
     words: [],
     correctAnswer: '', 
     score: 0,   
-};;
+};
 
 const guesses = document.querySelector('#guesses');
 const guessBtn = document.getElementById('guess-btn');
@@ -36,6 +36,7 @@ const createInputs = () => {
             name="input-${i + 1}"
             maxlength="1"
             required
+            ${i === 0 && 'autofocus'}
         /> `;
         textInputs.innerHTML += inputHTML;
     }
@@ -141,7 +142,7 @@ const checkAnswer = async (answer, correctAnswer) => {
 
     if (answer.join('') === correctAnswer) {
         // Calculate and update score
-        let roundScore = (state.noOfGuesses - state.currentGuess) * 20;
+        let roundScore = ((state.noOfGuesses + 1) - state.currentGuess) * 20;
         state.score += roundScore;
         // Play winning sound effect
         document.getElementById("myAudio").play(); 
