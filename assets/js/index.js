@@ -156,7 +156,9 @@ const checkAnswer = async (answer, correctAnswer) => {
             <p class="definition">${definition}</p>`
      }
 };
-
+/**
+ * Update guess, score and round no counters in UI
+ */
 const updateCounters = () => {
     let { currentRd, noOfRounds, currentGuess, noOfGuesses, score } = state;
     roundNumberField.textContent = `Round: ${currentRd + 1} / ${noOfRounds}`;
