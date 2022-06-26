@@ -20,14 +20,24 @@ window.onload = function() {
             message: message,
             reply_to: "no-reply@wordleclone",
         }
-        // generate a five digit number for the contact_number variable
-        this.contact_number.value = Math.random() * 100000 | 0;
-        // these IDs from the previous steps
-        emailjs.send("wordle_clone","wordle_clone_template", params)
-            .then(function() {
-                console.log('SUCCESS!', params);
-            }, function(error) {
-                console.log('FAILED...', error);
-            });
-    });
+        let p1 = document.getElementById('password').value;
+        let p2 = document.getElementById('confirm-password').value;
+      
+        if (p1 !== p2) {
+          let errorDiv = document.getElementById('errors');
+          errorDiv.innerHTML = "<p>Please ensure your passwords match.</p>"
+        } else {
+          console.log('Validation successful!');
+           // generate a five digit number for the contact_number variable
+            this.contact_number.value = Math.random() * 100000 | 0;
+            // these IDs from the previous steps
+            emailjs.send("wordle_clone","wordle_clone_template", params)
+                .then(function() {
+                    console.log('SUCCESS!', params);
+                }, function(error) {
+                    console.log('FAILED...', error);
+                });
+        }
+      }
+    )
 }
