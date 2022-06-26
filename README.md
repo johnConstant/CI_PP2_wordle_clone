@@ -157,7 +157,6 @@ The page is structured in a user-friendly and easy-to-learn way. Upon arriving a
 - Dictionary API
 - EmailJS
 
-<!--  
 ## Features
 The site consists of six pages and nine features
 
@@ -251,13 +250,22 @@ The site consists of six pages and nine features
 ### HTML Validation
 The W3C Markup Validation Service was used to validate the HTML of the website. All pages pass with no errors no warnings to show.
 <details><summary>Home</summary>
-<img src="docs/validation/html-validation-index.jpg">
+<img src="docs/html_validation/HTML_validation_index.png">
+</details>
+<details><summary>Game Page</summary>
+<img src="docs/html_validation/HTML_validation_game.png">
+</details>
+<details><summary>Settings</summary>
+<img src="docs/html_validation/HTML_validation_settings.png">
+</details>
+<details><summary>Rules</summary>
+<img src="docs/html_validation/HTML_validation_rules.png">
 </details>
 <details><summary>Contact Us</summary>
-<img src="docs/validation/html-validation-contact.jpg">
+<img src="docs/html_validation/HTML_validation_contact.png">
 </details>
 <details><summary>404</summary>
-<img src="docs/validation/html-validation-404.jpg">
+<img src="docs/html_validation/HTML_validation_404.png">
 </details>
 
 ### CSS Validation
