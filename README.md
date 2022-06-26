@@ -269,25 +269,22 @@ The W3C Markup Validation Service was used to validate the HTML of the website. 
 </details>
 
 ### CSS Validation
-The W3C Jigsaw CSS Validation Service was used to validate the CSS of the website. When validating the page as a whole, the validator shows some errors linked to Bootstrap v5.0. When validating just my custom CSS it passes with no errors.
+The W3C Jigsaw CSS Validation Service was used to validate the CSS of the website. When validating the CSS it passes with no errors.
 
 <details><summary>Full page</summary>
-<img src="docs/validation/css-validation-full-page.jpg">
-</details>
-<details><summary>style.css</summary>
-<img src="docs/validation/css-validation-custom-css.jpg">
+<img src="docs/validation/CSS_validation.png">
 </details>
 
 ### JavaScript Validation
 JSHint Static Code Analysis Tool for JavaScript was used to validate the Javascript files. No significant issues were found.
-<details><summary>game-settings.js</summary>
-<img src="docs/validation/js-validation-game-settings.jpg">
+<details><summary>index.js</summary>
+<img src="docs/validation/JS_validation_index.png">
 </details>
-<details><summary>guessing-be.js</summary>
-<img src="docs/validation/js-validation-guessing-bee.jpg">
+<details><summary>settings.js</summary>
+<img src="docs/validation/JS_validation_settings.png">
 </details>
 <details><summary>contact.js</summary>
-<img src="docs/validation/js-validation-contact.jpg">
+<img src="docs/validation/JS_validation_contact.png">
 </details>
 
 ### Accessibility
