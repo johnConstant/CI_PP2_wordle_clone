@@ -294,7 +294,7 @@ The WAVE WebAIM web accessibility evaluation tool was used to ensure the website
 <img src="docs/validation/WAVE_validation_index.png">
 </details>
 <details><summary>Game</summary>
-<img src="docs/validation/game.png">
+<img src="docs/validation/WAVE_validation_game.png">
 </details>
 <details><summary>Settings</summary>
 <img src="docs/validation/WAVE_validation_settings.png">
