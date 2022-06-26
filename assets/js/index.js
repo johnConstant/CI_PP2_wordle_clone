@@ -9,7 +9,6 @@ let state = data ? JSON.parse(data) : {
     correctAnswer: '', 
     score: 0,   
 };
-
 const guesses = document.querySelector('#guesses');
 const guessBtn = document.getElementById('guess-btn');
 const nextBtn = document.getElementById('next-btn');
@@ -21,9 +20,7 @@ const guessNumberField = document.querySelector('#guess-counter');
 const scoreField = document.querySelector('#score');
 const progressBar = document.querySelector('#progress-full');
 const result = document.querySelector('#result'); 
-
 /**
- * 
  * @returns inputs based on the number of letters in the answer word
  */
 const createInputs = () => {
@@ -42,7 +39,6 @@ const createInputs = () => {
     }
     return;
 };
-
 /**
  * Search Random Word API and save results to array
  * @returns array of words
@@ -80,7 +76,6 @@ const startGame = async () => {
     guessBtn.classList.remove('display-none');
     result.innerHTML = '';
 }
-
 /**
  * Gets values from text inputs and returns array with users guess
  * @returns array with answer separated by letter
@@ -95,7 +90,6 @@ const startGame = async () => {
     }
     return answer;
 };
-
 /**
  * Prints each letter from guess in individual span.
  * Individual spans allow for individual classes :- correct, almost
@@ -119,7 +113,6 @@ const startGame = async () => {
 const addClass = (element, className) => {
     document.getElementById(element).classList.add(className);
 };
-
 /**
  * check user answer array against correct answer array
  * apply appropriate class on result
@@ -129,7 +122,6 @@ const addClass = (element, className) => {
 const checkAnswer = async (answer, correctAnswer) => {
     let { score, currentRd, currentGuess } = state;
     let correctAnswerArray = Array.from(correctAnswer);
-
     for (let i = 0; i < state.wordLength; i++) {
         if (answer[i] === correctAnswerArray[i]) {
             addClass(`letter-${i + 1}-${currentGuess}`, 'correct');
@@ -139,7 +131,6 @@ const checkAnswer = async (answer, correctAnswer) => {
             addClass(`letter-${i + 1}-${currentGuess}`, 'wrong');
         }
     }
-
     if (answer.join('') === correctAnswer) {
         // Calculate and update score
         let roundScore = ((state.noOfGuesses + 1) - state.currentGuess) * 20;
@@ -165,7 +156,6 @@ const updateCounters = () => {
     guessNumberField.textContent = `Guess: ${currentGuess} / ${noOfGuesses}`;
     scoreField.textContent = score;
 };
-
 /**
  * Get definition of parameter from dictionaryapi.dev and return first definition or error message 
  * @param {string} word - search term for API query
@@ -221,15 +211,18 @@ const makeGuess = async () => {
  * @returns 
  */
 const nextRound = () => {
+    // Check if it is the last round
     if(state.currentRd === state.noOfRounds - 1){
+        // Update UI
         result.innerHTML = `<p>Game Over!</p><p>${state.score < 100 ? 'Keep practising. ' : state.score < 200 ? 'Well done. ' : 'Excellent! '}Your score is</p><p class='score'>${state.score}</p>`
         nextBtn.classList.add('display-none');
         formInputs.classList.add('display-none');
         newGameBtn.classList.remove('display-none');
-        let inputs = [...document.getElementsByClassName('letter-input')];
-        inputs.forEach((input) => input.remove());
         guesses.innerHTML = '';
         progressBar.style.width = "0%";
+        // Remove input elements from the DOM
+        let inputs = [...document.getElementsByClassName('letter-input')];
+        inputs.forEach((input) => input.remove());
         return;
     }
     // Update state values
