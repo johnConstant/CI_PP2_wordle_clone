@@ -536,6 +536,12 @@ footer a:hover {
 
 #submit-btn-container input[type="submit"] {
     text-align: center;
+    color: var(--white);
+}
+
+#submit-btn-container input[type="submit"]:hover {
+    color: var(--red);
+    transition: 0.5s all;
 }
 
 #errors {
