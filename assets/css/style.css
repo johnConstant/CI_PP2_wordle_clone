@@ -542,6 +542,24 @@ footer a:hover {
     font-weight: 700;
 }
 
+.error-message {
+    text-align: center;
+}
+
+.error-message h1 {
+    color: var(--red);
+    font-size: 15rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0;
+}
+
+.error-message p {
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin: 0;
+}
+
 
 /* Utility classes */
 
