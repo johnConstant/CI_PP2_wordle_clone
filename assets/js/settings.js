@@ -1,3 +1,4 @@
+/*jshint esversion: 9 */
 let state = {
         wordLength: 5,
         currentRd: 0,
@@ -19,9 +20,9 @@ const updateSettings = () => {
     let rounds = parseInt(document.getElementById('no-of-rounds').value);
     let guesses = parseInt(document.getElementById('difficulty').value);
     // spread state object into new object and update with settings values
-    let newState = {...state, wordLength: length, noOfRounds: rounds, noOfGuesses: guesses}
+    let newState = {...state, wordLength: length, noOfRounds: rounds, noOfGuesses: guesses};
     // save new state object to local storage
     localStorage.setItem('state', JSON.stringify(newState));
-}
+};
 
-document.getElementById('start-btn').addEventListener('click', updateSettings)
+document.getElementById('start-btn').addEventListener('click', updateSettings);

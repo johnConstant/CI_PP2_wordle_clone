@@ -1,3 +1,5 @@
+/*jshint esversion: 9 */
+
 (function() {
     // https://dashboard.emailjs.com/admin/account
     emailjs.init('-BeZauXTcWVY9NBqG');
@@ -19,13 +21,13 @@ window.onload = function() {
             from_name: "Wordle Clone!",
             message: message,
             reply_to: "no-reply@wordleclone",
-        }
+        };
         let p1 = document.getElementById('password').value;
         let p2 = document.getElementById('confirm-password').value;
       
         if (p1 !== p2) {
           let errorDiv = document.getElementById('errors');
-          errorDiv.innerHTML = "<p>Please ensure your passwords match.</p>"
+          errorDiv.innerHTML = "<p>Please ensure your passwords match.</p>";
         } else {
           console.log('Validation successful!');
            // generate a five digit number for the contact_number variable
@@ -39,5 +41,5 @@ window.onload = function() {
                 });
         }
       }
-    )
-}
+    );
+};
