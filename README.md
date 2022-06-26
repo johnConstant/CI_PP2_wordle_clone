@@ -291,26 +291,44 @@ JSHint Static Code Analysis Tool for JavaScript was used to validate the Javascr
 The WAVE WebAIM web accessibility evaluation tool was used to ensure the website met high accessibility standards. All pages pass with 0 errors.
 
 <details><summary>Home</summary>
-<img src="docs/validation/accessibility-evaluation-index.jpg">
+<img src="docs/validation/WAVE_validation_index.png">
+</details>
+<details><summary>Game</summary>
+<img src="docs/validation/game.png">
+</details>
+<details><summary>Settings</summary>
+<img src="docs/validation/WAVE_validation_settings.png">
+</details>
+<details><summary>Rules</summary>
+<img src="docs/validation/WAVE_validation_rules.png">
 </details>
 <details><summary>Contact</summary>
-<img src="docs/validation/accessibility-evaluation-contact.jpg">
+<img src="docs/validation/WAVE_validation_contact.png">
 </details>
 <details><summary>404</summary>
-<img src="docs/validation/accessibility-evaluation-404.jpg">
+<img src="docs/validation/WAVE_validation_404.png">
 </details>
 
 ### Performance 
 Google Lighthouse in Google Chrome Developer Tools was used to test the performance of the website.
 
 <details><summary>Home</summary>
-<img src="docs/validation/performance-lighthouse-index.jpg">
+<img src="docs/validation/lighthouse_validation_index.png">
+</details>
+<details><summary>Game</summary>
+<img src="docs/validation/lighthouse_validation_game.png">
+</details>
+<details><summary>Settings</summary>
+<img src="docs/validation/lighthouse_validation_settings.png">
+</details>
+<details><summary>Rules</summary>
+<img src="docs/validation/lighthouse_validation_rules.png">
 </details>
 <details><summary>Contact</summary>
-<img src="docs/validation/performance-lighthouse-contact.jpg">
+<img src="docs/validation/lighthouse_validation_contact.png">
 </details>
 <details><summary>404</summary>
-<img src="docs/validation/performance-lighthouse-404.jpg">
+<img src="docs/validation/lighthouse_validation_404.png">
 </details>
 
 ### Performing tests on various devices 
