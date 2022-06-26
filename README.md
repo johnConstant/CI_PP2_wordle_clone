@@ -250,32 +250,29 @@ The site consists of six pages and nine features
 ### HTML Validation
 The W3C Markup Validation Service was used to validate the HTML of the website. All pages pass with no errors no warnings to show.
 <details><summary>Home</summary>
-<img src="docs/html_validation/HTML_validation_index.png">
+<img src="docs/validation/HTML_validation_index.png">
 </details>
 <details><summary>Game Page</summary>
-<img src="docs/html_validation/HTML_validation_game.png">
+<img src="docs/validation/HTML_validation_game.png">
 </details>
 <details><summary>Settings</summary>
-<img src="docs/html_validation/HTML_validation_settings.png">
+<img src="docs/validation/HTML_validation_settings.png">
 </details>
 <details><summary>Rules</summary>
-<img src="docs/html_validation/HTML_validation_rules.png">
+<img src="docs/validation/HTML_validation_rules.png">
 </details>
 <details><summary>Contact Us</summary>
-<img src="docs/html_validation/HTML_validation_contact.png">
+<img src="docs/validation/HTML_validation_contact.png">
 </details>
 <details><summary>404</summary>
-<img src="docs/html_validation/HTML_validation_404.png">
+<img src="docs/validation/HTML_validation_404.png">
 </details>
 
 ### CSS Validation
-The W3C Jigsaw CSS Validation Service was used to validate the CSS of the website. When validating the page as a whole, the validator shows some errors linked to Bootstrap v5.0. When validating just my custom CSS it passes with no errors.
+The W3C Jigsaw CSS Validation Service was used to validate the CSS of the website. When validating the CSS it passes with no errors.
 
 <details><summary>Full page</summary>
-<img src="docs/validation/css-validation-full-page.jpg">
-</details>
-<details><summary>style.css</summary>
-<img src="docs/validation/css-validation-custom-css.jpg">
+<img src="docs/validation/CSS_validation.png">
 </details>
 
 ### JavaScript Validation

@@ -1,3 +1,5 @@
+/*jshint esversion: 8 */
+
 let data = localStorage.getItem('state');
 let state = data ? JSON.parse(data) : {
     wordLength: 5,
@@ -14,7 +16,7 @@ const guessBtn = document.getElementById('guess-btn');
 const nextBtn = document.getElementById('next-btn');
 const newGameBtn = document.getElementById('new-game-btn');
 const formInputs = document.getElementById('guess-inputs');
-const textInputs = document.getElementById('guess-inputs')
+const textInputs = document.getElementById('guess-inputs');
 const roundNumberField = document.querySelector('#rounds');
 const guessNumberField = document.querySelector('#guess-counter');
 const scoreField = document.querySelector('#score');
@@ -26,7 +28,7 @@ const result = document.querySelector('#result');
  * @returns inputs based on the number of letters in the answer word
  */
 const createInputs = () => {
-    for (i = 0; i < state.wordLength; i++) {
+    for (let i = 0; i < state.wordLength; i++) {
         let inputHTML = `
         <input
             type="text"
@@ -65,7 +67,6 @@ const createInputs = () => {
  * set correct answer for 1st round from words array
  */
 const startGame = async () => {
-    let { words, correctAnswer } = state; 
     state = JSON.parse(data);
     state.words = await getWords();
     state.correctAnswer = state.words[0];
@@ -73,12 +74,12 @@ const startGame = async () => {
     progressBar.style.width = `0%`;
     createInputs();
     updateCounters();
-    formInputs.classList.remove('display-none')
+    formInputs.classList.remove('display-none');
     newGameBtn.classList.add('display-none');
     guessBtn.classList.remove('display-none');
     gameInfo.classList.remove('display-none');
     result.innerHTML = '';
-}
+};
 /**
  * Gets values from text inputs and returns array with users guess
  * @returns array with answer separated by letter
@@ -123,7 +124,7 @@ const addClass = (element, className) => {
  * @param {string} correctAnswer 
  */
 const checkAnswer = async (answer, correctAnswer) => {
-    let { score, currentRd, currentGuess } = state;
+    let { currentGuess } = state;
     let correctAnswerArray = Array.from(correctAnswer);
     for (let i = 0; i < state.wordLength; i++) {
         if (answer[i] === correctAnswerArray[i]) {
@@ -147,7 +148,7 @@ const checkAnswer = async (answer, correctAnswer) => {
         // Get definition and print value
         let definition = await getDefinition(correctAnswer);
         result.innerHTML = `<p class="result-text">Well Done!!!</p>
-            <p class="definition">${definition}</p>`
+            <p class="definition">${definition}</p>`;
      }
 };
 /**
@@ -174,9 +175,10 @@ const getDefinition = async (word) => {
                 return res[0].meanings[0].definitions[0].definition;
             }
         }).catch(err => {
-            console.log(err)});
-        return definition
-    }
+            console.log(err);
+        });
+        return definition;
+    };
 /**
  * 
  */
@@ -201,14 +203,14 @@ const makeGuess = async () => {
         nextBtn.classList.remove('display-none'); 
         guessBtn.classList.add('display-none');
         formInputs.classList.add('display-none');
-        state.correctAnswer = state.words[state.currentRd]
+        state.correctAnswer = state.words[state.currentRd];
         // Get and display definition of answer
         let definition = await getDefinition(correctAnswer);
         result.innerHTML = `<p class="result-text">Hard Luck!!!</p>
             <p>The answer was ${correctAnswer}</p>
-            <p class="definition">${definition}</p>`
+            <p class="definition">${definition}</p>`;
     }
-}
+};
 /**
  * 
  * @returns 
@@ -219,7 +221,7 @@ const nextRound = () => {
         // Update UI
         result.innerHTML = `<p class="game-over">Game Over!</p>
                             <p>${state.score < 100 ? 'Keep practising. ' : state.score < 200 ? 'Well done. ' : 'Excellent! '}Your score is</p>
-                            <p class='score'>${state.score}</p>`
+                            <p class='score'>${state.score}</p>`;
         nextBtn.classList.add('display-none');
         formInputs.classList.add('display-none');
         newGameBtn.classList.remove('display-none');
@@ -242,13 +244,13 @@ const nextRound = () => {
     formInputs.classList.remove('display-none');
     guesses.innerHTML = '';
     result.innerHTML = '';
-}
+};
 // Event Handlers
 document.addEventListener('DOMContentLoaded', () => {
     // https://stackoverflow.com/questions/15595652/focus-next-input-once-reaching-maxlength-value
     document.getElementById('guess-inputs').onkeyup = function (e) {
         var target = e.srcElement;
-        var maxLength = parseInt(target.attributes['maxlength'].value, 10);
+        var maxLength = parseInt(target.attributes.maxlength.value, 10);
         var myLength = target.value.length;
         if (myLength >= maxLength) {
             var next = target;
@@ -265,4 +267,4 @@ document.addEventListener('DOMContentLoaded', () => {
     guessBtn.addEventListener('click', makeGuess);
     nextBtn.addEventListener('click', nextRound);
     newGameBtn.addEventListener('click', startGame);
-})
+});
