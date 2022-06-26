@@ -30,6 +30,7 @@ const result = document.querySelector('#result');
 const createInputs = () => {
     for (let i = 0; i < state.wordLength; i++) {
         let inputHTML = `
+        <label for="input-${i + 1}" class="hidden-label">Input ${i + 1}</label>
         <input
             type="text"
             id="input-${i + 1}"

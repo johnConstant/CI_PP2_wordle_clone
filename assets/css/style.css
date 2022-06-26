@@ -236,6 +236,18 @@ textarea:focus {
     outline: 0;
 }
 
+/* https://css-tricks.com/html-inputs-and-labels-a-love-story/ */
+.hidden-label {
+    border-width: 0 !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    width: 1px !important;
+  
+}
+
 #no-of-rounds, 
 #no-of-letters {
     font-size: 1.8rem;
