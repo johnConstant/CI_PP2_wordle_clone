@@ -19,6 +19,8 @@ const roundNumberField = document.querySelector('#rounds');
 const guessNumberField = document.querySelector('#guess-counter');
 const scoreField = document.querySelector('#score');
 const progressBar = document.querySelector('#progress-full');
+const gameInfo = document.getElementById('game-info');
+console.log(gameInfo);
 const result = document.querySelector('#result'); 
 /**
  * @returns inputs based on the number of letters in the answer word
@@ -74,6 +76,7 @@ const startGame = async () => {
     formInputs.classList.remove('display-none')
     newGameBtn.classList.add('display-none');
     guessBtn.classList.remove('display-none');
+    gameInfo.classList.remove('display-none');
     result.innerHTML = '';
 }
 /**
@@ -214,10 +217,13 @@ const nextRound = () => {
     // Check if it is the last round
     if(state.currentRd === state.noOfRounds - 1){
         // Update UI
-        result.innerHTML = `<p>Game Over!</p><p>${state.score < 100 ? 'Keep practising. ' : state.score < 200 ? 'Well done. ' : 'Excellent! '}Your score is</p><p class='score'>${state.score}</p>`
+        result.innerHTML = `<p class="game-over">Game Over!</p>
+                            <p>${state.score < 100 ? 'Keep practising. ' : state.score < 200 ? 'Well done. ' : 'Excellent! '}Your score is</p>
+                            <p class='score'>${state.score}</p>`
         nextBtn.classList.add('display-none');
         formInputs.classList.add('display-none');
         newGameBtn.classList.remove('display-none');
+        gameInfo.classList.add('display-none');
         guesses.innerHTML = '';
         progressBar.style.width = "0%";
         // Remove input elements from the DOM
