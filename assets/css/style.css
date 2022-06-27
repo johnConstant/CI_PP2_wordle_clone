@@ -550,7 +550,8 @@ footer a:hover {
     font-weight: 700;
 }
 
-.error-message {
+.error-message, 
+.thanks-message {
     text-align: center;
 }
 
@@ -562,12 +563,20 @@ footer a:hover {
     margin-bottom: 0;
 }
 
-.error-message h2 {
+.error-message h2,
+.thanks-message h2 {
     font-size: 3rem;
     text-transform: uppercase;
     margin: 0;
 }
 
+.thanks-message h1 {
+    color: var(--red);
+    font-size: 7.5rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0;  
+}
 
 /* Utility classes */
 
