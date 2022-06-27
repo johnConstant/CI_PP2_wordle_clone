@@ -68,16 +68,18 @@ The Wordle clone is a copy of the popular New York Times word game. This version
 
 ### User Stories
 1. As a user, I want to be able to pick the settings for the game
-2. As a user, I want to gain feedback on my previous guesses in the game
-3. As a user, I want to know what the correct phrase was in case I don't guess it correctly
-4. As a user, I want to see the definition of the correct answer
-5. As a user, I want feedback on my correct answers
-6. As a user, I want to see my total score at the end of the game
-7. As a user, I want to use contact form and leave a message
+2. As a user, I want to learn the rules of the game
+3. As a user, I want to gain feedback on my previous guesses in the game
+4. As a user, I want visual feedback about my games progress
+5. As a user, I want to know what the correct phrase was in case I don't guess it correctly
+6. As a user, I want to see the definition of the correct answer
+7. As a user, I want feedback on my correct answers
+8. As a user, I want to see my total score at the end of the game
+9. As a user, I want to use contact form and leave a message
 
 ### Site Owner Stories
-8. As a site owner, I want users to be able to contact us and leave a message.
-9. As a site owner, I want users to be able to find us on social media.
+10. As a site owner, I want users to be able to contact us and leave a message.
+11. As a site owner, I want users to be able to find us on social media.
 
 ## Design
 
@@ -87,17 +89,13 @@ The game was designed to have a simple design with highly contrasting, simple co
 ### Colour
 A similar colour palette was chosen to the original New York Times version of the game. The yellow and green colours giving users feedback on their guesses are intuitive and the red colour is a highly contrasting colour to these.
 
-<details><summary>Colour palette</summary>
-<img src="docs/features/color-palette.jpg">
-</details>
-
 ### Fonts
-For the fonts, I decided to use a clean, crisp sans-serif font. I used Google Fonts 'Jakarta Plus' font. 
+For the fonts, I decided to use a clean, crisp sans-serif font. I used Google Fonts ['Jakarta Plus'](https://fonts.google.com/specimen/Plus+Jakarta+Sans) font. 
 
 ### Structure
-The page is structured in a user-friendly and easy-to-learn way. Upon arriving at the website the user sees a screen with the option to choose a difficulty for the game. The website consists of six separate pages:
+The page is structured in a user-friendly and easy-to-learn way. Upon arriving at the website the user sees a screen with a menu listing some of the pages. The site contains of 6 pages. 
 
-- A game home page with menu
+- A home page with menu
 - A game page with 4 different views:
     - one for the game
     - one for the game with user guesses
@@ -161,8 +159,8 @@ The page is structured in a user-friendly and easy-to-learn way. Upon arriving a
 The site consists of six pages and nine features
 
 ### Header
-- Featured on all pages
-- Consists of the game logo and game title
+- Featured on all pages except the home page
+- Consists of the game logo and nav menu
 
 <details><summary>Header</summary>
 <img src="docs/features/feature-heading.jpg">
@@ -170,22 +168,43 @@ The site consists of six pages and nine features
 
 ### Footer
 - Featured on all pages
-- Consists of a section providing social media links and a link to the contact form
-- User story covered: 8
+- Consists of a section providing social media links
+- User story covered: 10
 
 <details><summary>Footer</summary>
-<img src="docs/features/feature-footer.jpg">
+<img src="docs/features/feature_footer.png">
 </details>
 
 ### Start screen
-- Provides an option to choose between three different game difficulties.
-- User story covered: 1
+- Provides an easy to use navigation to the various different pages on the website.
+- User story covered: 1, 2, 8, 10
 
 <details><summary>Start screen</summary>
-<img src="docs/features/feature-start-screen.jpg">
+<img src="docs/features/page_index.png">
+</details>
+
+### Settings screen
+- Allows the player to choose their game options
+    - Set the number of letters in their word from 4 to 8
+    - Choose the number of rounds per game from 1 to 10
+    - Set the difficulty and change the number of guesses available
+    - User stories covered: 1
+
+<details><summary>Settings screen</summary>
+<img src="docs/features/page_settings.png">
 </details>
 
 ### Game screen
+- Consists of different sections:
+    - Current game score
+    - Remaining guesses progress bar
+    - Round and guess counters
+    - Text inputs for players guess
+    - Submit button
+    - Validation error message
+    - Player's previous guesses
+    - User stories covered: 
+
 - Consists of 6 different sections:
     - Game difficulty that is currently being played
     - A section with the current score and the h-score
