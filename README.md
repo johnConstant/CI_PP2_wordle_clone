@@ -508,7 +508,7 @@ The website was deployed using GitHub Pages by following these steps:
 1. In the GitHub repository navigate to the Settings tab
 2. On the left-hand menu select Pages
 3. For the source select Branch: master
-4. After the webpage refreshes automatically you will ses a ribbon on the top saying: "Your site is published at https://4n4ru.github.io/CI-P2-GuessingBee/
+4. After the webpage refreshes automatically you will ses a ribbon on the top saying: "Your site is published at https://johnconstant.github.io/CI_PP2_wordle_clone/index.html
 
 You can fork the repository by following these steps:
 1. Go to the GitHub repository

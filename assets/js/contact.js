@@ -36,6 +36,7 @@ window.onload = function() {
             emailjs.send("wordle_clone","wordle_clone_template", params)
                 .then(function() {
                     console.log('SUCCESS!', params);
+                    window.location.href = '/thank-you.html'
                 }, function(error) {
                     console.log('FAILED...', error);
                 });
