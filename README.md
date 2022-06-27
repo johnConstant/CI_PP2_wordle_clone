@@ -48,7 +48,7 @@ The Wordle clone is a copy of the popular New York Times word game. This version
 - Learn new words and their meanings
 
 ### Site Owner Goals
-- Creating a fun and engaging game that users will want to play again and again.
+- Creating a fun and interactive game that users will want to play again and again.
 - The game should be fully responsive to be able to be played on different devices.
 
 ## User Experience
@@ -70,7 +70,7 @@ The Wordle clone is a copy of the popular New York Times word game. This version
 1. As a user, I want to be able to pick the settings for the game
 2. As a user, I want to learn the rules of the game
 3. As a user, I want to gain feedback on my previous guesses in the game
-4. As a user, I want visual feedback about my games progress
+4. As a user, I want to get visual feedback about my games progress
 5. As a user, I want to know what the correct phrase was in case I don't guess it correctly
 6. As a user, I want to see the definition of the correct answer
 7. As a user, I want feedback on my correct answers
@@ -169,7 +169,7 @@ The site consists of six pages and nine features
 ### Footer
 - Featured on all pages
 - Consists of a section providing social media links
-- User story covered: 10
+- User story covered: 11
 
 <details><summary>Footer</summary>
 <img src="docs/features/feature_footer.png">
@@ -177,7 +177,7 @@ The site consists of six pages and nine features
 
 ### Start screen
 - Provides an easy to use navigation to the various different pages on the website.
-- User story covered: 1, 2, 8, 10
+- User story covered: 1, 2, 9, 11
 
 <details><summary>Start screen</summary>
 <img src="docs/features/page_index.png">
@@ -203,50 +203,67 @@ The site consists of six pages and nine features
     - Submit button
     - Validation error message
     - Player's previous guesses
-    - User stories covered: 
+    - User stories covered: 3, 4, 8
 
-- Consists of 6 different sections:
-    - Game difficulty that is currently being played
-    - A section with the current score and the h-score
-    - An image that shows how many moves are left in the game round
-    - The theme of the current phrase to be guessed
-    - The phrase to be guessed represented with underscores that switch to letters after each correct guess
-    - Alphabet buttons
-    - User stories covered: 2, 3
+<details><summary>Game screen - user interface</summary>
+<img src="docs/features/feature_scoreCounter.png">
+</details>
+<details><summary>Game screen - text inputs</summary>
+<img src="docs/features/feature_guessInputs.png">
+</details>
+<details><summary>Game screen - form validation</summary>
+<img src="docs/features/feature_gameValidation.png">
+</details>
+<details><summary>Game screen - previous guess</summary>
+<img src="docs/features/feature_prevGuesses.png">
+</details>
 
-<details><summary>Game screen</summary>
-<img src="docs/features/feature-game-screen.jpg">
+### End of round screen
+- Consists of four sections
+    - A dynamic message depending on the result of the round
+    - A section with the current score after the round
+    - The correct answer in the round
+    - a sound effect for added feedback if the answer is correct
+    - A definition of the correct answer as it appears on dictionary API
+    - A summary of the player's guesses from the round
+    - User story covered: 3, 4, 5, 6, 7
+
+<details><summary>Correct Guess screen</summary>
+<img src="docs/features/feature_definition.png">
+</details>
+<details><summary>Out of guesses screen</summary>
+<img src="docs/features/feature_definition_wrongAnswer.png">
+</details>
+<details><summary>No definition found screen</summary>
+<img src="docs/features/feature_noDefinitionFound.png">
 </details>
 
 ### Game over screen
 - Consists of three sections
-    - A section with the current score and the h-score
-    - The game over message with a picture of a sad bee
+    - A section with the current score
+    - The game over message with dynamic content determined by the player score
     - Buttons to chose what to do next
-    - User stories covered: 4
+    - User stories covered: 4, 8
 
 <details><summary>Game Over Screen</summary>
-<img src="docs/features/feature-game-over-screen.jpg">
+<img src="docs/features/feature_gameOver.png">
 </details>
-
-### Correct guess screen
-- Consists of four sections
-    - Game difficulty that is currently being played
-    - A section with the current score and the h-score
-    - The congratulatory message with a picture of a happy bee
-    - Buttons to chose what to do next
-    - User story covered: 5
-
-<details><summary>Correct Guess screen</summary>
-<img src="docs/features/feature-correct-screen.jpg">
+<details><summary>Game Over - low score</summary>
+<img src="docs/features/feature_dynamicMessaging_low.png">
+</details>
+<details><summary>Game Over - medium score</summary>
+<img src="docs/features/feature_dynamicMessage_med.png">
+</details>
+<details><summary>Game Over - high score</summary>
+<img src="docs/features/feature_dynamicMessage_high.png">
 </details>
 
 ### Contact form
 - A way for the user to provide feedback
-- User story covered 7 
+- User story covered: 9
 
 <details><summary>Contact Form</summary>
-<img src="docs/features/feature-contact-form.jpg">
+<img src="docs/features/page_contact.png">
 </details>
 
 ### Form confirmation
@@ -261,7 +278,7 @@ The site consists of six pages and nine features
 - Provides the user with a way to return to the game after clicking on a broken link
 
 <details><summary>404 message</summary>
-<img src="docs/features/feature-404.jpg">
+<img src="docs/features/page_404_1.png">
 </details>
 
 ## Validation
@@ -368,99 +385,123 @@ The website was tested on the following browsers:
 
 ### Testing user stories
 
-1. As a user, I want to be able to pick a difficulty for the game
+1. As a user, I want to be able to pick the settings for the game
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
-| Start screen | Click on the desired difficulty | The games screen loads with the desired difficulty | Works as expected |
+| Settings screen | Choose your desired game settings | The games screen loads with the desired settings | Works as expected |
 
 <details><summary>Screenshots</summary>
-<img src="docs/user-story-testing/user-story-1.jpg">
+<img src="docs/features/page_settings.png">
 </details>
 
-2. As a user, I want to test my general knowledge by guessing different phrases
+2.  As a user, I want to learn the rules of the game
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
-| Game screen | Click the alphabet buttons or use your keyboard to guess letters and reveal the correct answer | Either the phrase displayed or the image change depending on if your guess is correct or wrong | Works as expected |
+| Rules page | Click rules button in the header navigation | Read the rules of the game and some helpful tips and tricks  | Works as expected |
 
 <details><summary>Screenshots</summary>
-<img src="docs/user-story-testing/user-story-2.jpg">
+<img src="docs/features/page_rules.png">
 </details>
 
-3. As a user, I want to be able to pick the letters both by clicking the mouse and by using the keyboard
+3. As a user, I want to gain feedback on my previous guesses in the game
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
-| Game screen | Click the alphabet buttons or use your keyboard | The used letters change color and can't be picked a second time | Works as expected |
+| Game screen | Submit a guess using the text inputs on screen | The letters that appear in the correct answer are highlighted depending on their position | Works as expected |
 
 <details><summary>Screenshots</summary>
-<img src="docs/user-story-testing/user-story-3.jpg">
+<img src="docs/features/feature_prevGuesses.png">
 </details>
 
-4. As a user, I want to know what the correct phrase was in case I don't guess it correctly
+4. As a user, I want to get visual feedback about my games progress
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
-| Game over screen | Run out of moves | The game over screen with the correct answer is displayed | Works as expected |
+| Game screen | Play the game making guesses and progressing through rounds | The progress bar, guess counter and round counter update | Works as expected |
 
 <details><summary>Screenshots</summary>
-<img src="docs/user-story-testing/user-story-4.jpg">
+<img src="docs/features/feature_scoreCounter.png">
 </details>
 
-5. As a user, I want feedback on my correct answers
+5. As a user, I want to know what the correct phrase was in case I don't guess it correctly
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
-| Correct guess screen | Complete the phrase before you run out of moves | The correct message is displayed | works as expected |
+| End of round screen | Don't complete the phrase before you run out of guesses | The correct answer is displayed | works as expected |
 
 <details><summary>Screenshots</summary>
-<img src="docs/user-story-testing/user-story-5.jpg">
+<img src="docs/features/feature_definition_wrongAnswer.png">
 </details>
 
-6. As a user, I want confirmation that my feedback was sent
+6. As a user, I want to see the definition of the correct answer
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| End of round screen | Don't complete the phrase before you run out of guesses | The correct answer is displayed | works as expected |
+| End of round screen | Guess the correct answer | The definition of the correct answer is displayed from dictionary API | works as expected | 
+
+<details><summary>Screenshots</summary>
+<img src="docs/features/feature_definition.png">
+</details>
+
+7. As a user, I want feedback on my correct answers
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| End of round screen | Guess the correct answer | Sound effect plays for added feedback | Works as expected |
+
+<details><summary>Screenshots</summary>
+<img src="docs/features/feature_noDefinitionFound.png">
+</details>
+
+8. As a user, I want to see my total score at the end of the game
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Game Over screen | Finish a game | See the final score for the game with a dynamic message | Works as expected |
+
+<details><summary>Screenshots</summary>
+<img src="docs/features/feature_gameOver.png">
+</details>
+
+9. As a user, I want to use contact form and leave a message
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
 | Form confirmation | Fill out the contact form and click the submit button | A thank you message is displayed | Works as expected | 
+| User email | Fill out the contact form and click the submit button | An email with the submitted content is received by the player | Works as expected | 
 
 <details><summary>Screenshots</summary>
 <img src="docs/user-story-testing/user-story-6.jpg">
 </details>
 
-7. As a site owner, I want users to be able to contact us or make suggestions for new phrases.
+10. As a site owner, I want users to be able to contact us and leave a message.
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
-| Contact form | Scroll down to the footer section and click the contact us link | Displays the contact form | Works as expected |
+| Contact form | Click on the contact link in the header navigation | Displays the contact form | Works as expected |
 
 <details><summary>Screenshots</summary>
-<img src="docs/user-story-testing/user-story-7.jpg">
+<img src="docs/features/page_contact.png">
 </details>
 
-8. As a site owner, I want users to be able to find us on social media.
+11. As a site owner, I want users to be able to find us on social media.
 
 | **Feature** | **Action** | **Expected Result** | **Actual Result** |
 |-------------|------------|---------------------|-------------------|
 | Footer | Scroll down to the footer section | See social media links | Works as expected |
 
 <details><summary>Screenshots</summary>
-<img src="docs/user-story-testing/user-story-8.jpg">
+<img src="docs/features/feature_footer.png">
 </details>
 
 ## Bugs
 
 | **Bug** | **Fix** |
 | ----------- | ----------- |
-| The score doesn't reset after the game is restarted | Add score reset to showStartScreen function |
-| The phrase that needs to be guessed jumps around after each correct letter picked | Change font to monospace |
-| On the correct screen, the total score is shown instead of the round score | Set the HTML to roundScore instead of score |
-| Checking correct guess is not working for uppercase letters when clicking keyboard | call the toUpperCase function on key |
-| The game container is not centered for some screen sizes | Using Bootstrap center the container for all screen sizes |
-| Alphabet buttons don't change color after they are clicked | Remove the my-btn class after the click event is fired |
-| Social media links are not visible on contact and 404 page | Add missing FontAwesome kit to the pages |
-| On some tablets, whitespace below the footer appears | Add CSS to make the pages min-height: 100vh and allow the main element to grow, but not to shrink |
-| The contact page has overflow on smaller screen sizes | Change padding and margin sizes for smaller screens |
+
 
 ## Deployment
 The website was deployed using GitHub Pages by following these steps:
