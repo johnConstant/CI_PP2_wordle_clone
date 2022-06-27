@@ -20,7 +20,7 @@ window.onload = function() {
             to_email: email,
             from_name: "Wordle Clone!",
             message: message,
-            reply_to: "no-reply@wordleclone",
+            reply_to: email,
         };
         let p1 = document.getElementById('password').value;
         let p2 = document.getElementById('confirm-password').value;
