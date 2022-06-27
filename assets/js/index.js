@@ -22,7 +22,6 @@ const guessNumberField = document.querySelector('#guess-counter');
 const scoreField = document.querySelector('#score');
 const progressBar = document.querySelector('#progress-full');
 const gameInfo = document.getElementById('game-info');
-console.log(gameInfo);
 const result = document.querySelector('#result'); 
 /**
  * @returns inputs based on the number of letters in the answer word
