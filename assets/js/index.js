@@ -269,6 +269,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     };
+    document.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter' && (state.currentGuess < state.noOfGuesses)) {
+          makeGuess();
+        }
+    });
     startGame();
     guessBtn.addEventListener('click', makeGuess);
     nextBtn.addEventListener('click', nextRound);
