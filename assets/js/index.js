@@ -181,35 +181,40 @@ const getDefinition = async (word) => {
         return definition;
     };
 /**
- * 
+ * This function runs every time a player makes a guess
  */
 const makeGuess = async () => {
-    let {currentGuess, noOfGuesses, correctAnswer} = state;
-    let answer = getAnswer();
-    // Increment guess
-    state.currentGuess++;
-    // Update progress bar when guess number has been incremented
-    progressBar.style.width = `${((currentGuess + 1) / noOfGuesses) * 100}%`;
-    // Clear inputs
     const inputs = [...document.getElementsByClassName('letter-input')];
-    inputs.forEach((input) => (input.value = ''));
-    // Run Print and Check answer functions
-    printAnswer(answer, state.currentGuess);
-    checkAnswer(answer, state.correctAnswer);
-    // Update UI
-    updateCounters();
-    // Check if any guesses remain
-    if(currentGuess >= noOfGuesses - 1){      
-        // Update UI  
-        nextBtn.classList.remove('display-none'); 
-        guessBtn.classList.add('display-none');
-        formInputs.classList.add('display-none');
-        state.correctAnswer = state.words[state.currentRd];
-        // Get and display definition of answer
-        let definition = await getDefinition(correctAnswer);
-        result.innerHTML = `<p class="result-text">Hard Luck!!!</p>
-            <p>The answer was ${correctAnswer}</p>
-            <p class="definition">${definition}</p>`;
+    if(inputs.every(input => input.value !== '')){
+        let {currentGuess, noOfGuesses, correctAnswer} = state;
+        let answer = getAnswer();
+        // Increment guess
+        state.currentGuess++;
+        // Update progress bar when guess number has been incremented
+        progressBar.style.width = `${((currentGuess + 1) / noOfGuesses) * 100}%`;
+        // Clear inputs
+        inputs.forEach((input) => (input.value = ''));
+        document.getElementById('errors').innerHTML = '';
+        // Run Print and Check answer functions
+        printAnswer(answer, state.currentGuess);
+        checkAnswer(answer, state.correctAnswer);
+        // Update UI
+        updateCounters();
+        // Check if any guesses remain
+        if(currentGuess >= noOfGuesses - 1){      
+            // Update UI  
+            nextBtn.classList.remove('display-none'); 
+            guessBtn.classList.add('display-none');
+            formInputs.classList.add('display-none');
+            state.correctAnswer = state.words[state.currentRd];
+            // Get and display definition of answer
+            let definition = await getDefinition(correctAnswer);
+            result.innerHTML = `<p class="result-text">Hard Luck!!!</p>
+                <p>The answer was ${correctAnswer}</p>
+                <p class="definition">${definition}</p>`;
+        }
+    }else {
+        document.getElementById('errors').innerHTML = `<p>You're missing something!</p>`
     }
 };
 /**
