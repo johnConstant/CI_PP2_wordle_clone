@@ -370,9 +370,10 @@ Google Lighthouse in Google Chrome Developer Tools was used to test the performa
 ### Performing tests on various devices 
 The website was tested on the following devices:
 
-- Lenovo Yoga 2 Pro (both in pc and tablet mode)
-- Honor 20 pro
-- Xiaomi Redmi Note 7
+- Apple Macbook Pro
+- Dell
+- Nord One Plus(Android)
+- Apple iPhone 12(iOS)
 
 In addition, the website was tested using the Google Chrome Developer Tools Device Toggling option for all available device options.
 
@@ -382,6 +383,8 @@ The website was tested on the following browsers:
 - Google Chrome
 - Mozilla Firefox
 - Microsoft Edge
+- Opera
+- Safari
 
 ### Testing user stories
 
@@ -474,7 +477,10 @@ The website was tested on the following browsers:
 | User email | Fill out the contact form and click the submit button | An email with the submitted content is received by the player | Works as expected | 
 
 <details><summary>Screenshots</summary>
-<img src="docs/user-story-testing/user-story-6.jpg">
+<img src="docs/features/feature_formConfirmation.png">
+</details>
+<details><summary>Screenshots</summary>
+<img src="docs/features/feature_formConfirmationEmail.png">
 </details>
 
 10. As a site owner, I want users to be able to contact us and leave a message.
