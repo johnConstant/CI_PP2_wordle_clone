@@ -27,7 +27,8 @@ body {
     font-size: 1.6rem;
     line-height: 1.5;
     color: var(--white);
-    background-color: #333;
+    background: #333 url('../images/bg.jpg') no-repeat right bottom;
+    background-size: cover;
 }
 
 h1,
@@ -153,10 +154,20 @@ nav > * {
 
 header h1 {
     font-size: 7.2rem;
-
+    text-align: center;
 }
 
 /* Home page button container */
+
+.homepage-container {
+    width: 100%;
+    min-height:85vh;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-content: center;
+}
 
 .btn-container {
     display: grid;
