@@ -1,7 +1,7 @@
 /*jshint esversion: 8 */
 
 let data = localStorage.getItem('state');
-let state = data !== null ? JSON.parse(data) : {
+let state = {
     wordLength: 5,
     currentRd: 0,
     noOfRounds: 2,
@@ -67,7 +67,9 @@ const createInputs = () => {
  * set correct answer for 1st round from words array
  */
 const startGame = async () => {
-    state = JSON.parse(data);
+    if(data){
+        state = JSON.parse(data);
+    }
     state.words = await getWords();
     state.correctAnswer = state.words[0];
     // Update UI

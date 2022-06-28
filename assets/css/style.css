@@ -178,17 +178,8 @@ header h1 {
 
 .btn-container a:hover {
     text-decoration: none;
-    background: -webkit-linear-gradient(
-        45deg,
-        var(--red) 0%,
-        var(--almost) 51%,
-        var(--red) 100%
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     transition: 0.8s ease;
-    color: var(--almost);
+    color: var(--red);
     transition: 0.8s ease;
 }
 

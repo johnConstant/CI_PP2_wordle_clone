@@ -1,4 +1,5 @@
 /*jshint esversion: 9 */
+/* globals emailjs */
 
 (function() {
     // https://dashboard.emailjs.com/admin/account
