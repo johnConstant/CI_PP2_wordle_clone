@@ -110,26 +110,26 @@ The page is structured in a user-friendly and easy-to-learn way. Upon arriving a
 
 ### Wireframes
 
-<details><summary>Start screen</summary>
-<img src="docs/wireframes/start-screen.png">
+<details><summary>Home screen</summary>
+<img src="docs/wireframes/wireframe_Home_Screen.png">
 </details>
 <details><summary>Game screen</summary>
-<img src="docs/wireframes/game-screen.png">
+<img src="docs/wireframes/wireframe_Game_Screen.png">
 </details>
-<details><summary>Correct screen</summary>
-<img src="docs/wireframes/correct-screen.png">
+<details><summary>Game screen with guesses</summary>
+<img src="docs/wireframes/wireframe_Game_Screen_with_guess.png">
 </details>
-<details><summary>Game over screen</summary>
-<img src="docs/wireframes/game-over-screen.png">
+<details><summary>End of Round</summary>
+<img src="docs/wireframes/wireframe_End_of_round.png">
 </details>
-<details><summary>Contact Us</summary>
-<img src="docs/wireframes/contact-us.png">
+<details><summary>Game Over screen</summary>
+<img src="docs/wireframes/wireframe_Game_Over.png">
 </details>
 <details><summary>Form confirmation</summary>
-<img src="docs/wireframes/form-confirmation.png">
+<img src="docs/wireframes/wireframe_Form_Confirmation.png">
 </details>
 <details><summary>404 page</summary>
-<img src="docs/wireframes/404-page.png">
+<img src="docs/wireframes/wireframe_404.png">
 </details>
 
 ## Technologies Used
@@ -163,7 +163,7 @@ The site consists of six pages and nine features
 - Consists of the game logo and nav menu
 
 <details><summary>Header</summary>
-<img src="docs/features/feature-heading.jpg">
+<img src="docs/features/feature_header.png">
 </details>
 
 ### Footer
@@ -271,7 +271,7 @@ The site consists of six pages and nine features
 - User story covered: 6
 
 <details><summary>Form confirmation</summary>
-<img src="docs/features/feature-form-confirmation.jpg">
+<img src="docs/features/page_form_confirmation.png">
 </details>
 
 ### 404 message
@@ -477,7 +477,7 @@ The website was tested on the following browsers:
 | User email | Fill out the contact form and click the submit button | An email with the submitted content is received by the player | Works as expected | 
 
 <details><summary>Screenshots</summary>
-<img src="docs/features/feature_formConfirmation.png">
+<img src="docs/features/page_form_confirmation.png">
 </details>
 <details><summary>Screenshots</summary>
 <img src="docs/features/feature_formConfirmationEmail.png">
@@ -508,6 +508,13 @@ The website was tested on the following browsers:
 | **Bug** | **Fix** |
 | ----------- | ----------- |
 
+## Exceptions
+- A 404 error appears in the console when there is no definition of the word available on [dictionaryapi.dev](https://dictionaryapi.dev/). The API returns an object in its response and the user is displayed feedback, letting them know that no definition is available. 
+- 404 url available [here](https://api.dictionaryapi.dev/api/v2/entries/en/tomatoey)
+
+<details><summary>Screenshots</summary>
+<img src="docs/features/404_error.png">
+</details>
 
 ## Deployment
 The website was deployed using GitHub Pages by following these steps:
@@ -540,10 +547,14 @@ You can clone the repository by following these steps:
 ## Credits
 
 ### Media
+- [Random Word Generator](https://random-word-api.herokuapp.com/word?length=6&number=6)
+- [Dictionary API](https://api.dictionaryapi.dev/api/v2/entries/en/house) 
 - [Sound Effect]('assets/sounds/correct_soundEffect.mp3'): <a href='https://www.dreamstime.com/royalty-free-sound-fx-correct-ding-correct-answer-ding-designed-games-apps-audio137523215'>Correct answer ding</a>
+- [Background Image](https://elements.envato.com/geometric-textured-backgrounds-MZ9YM8)
 
 ### Code
-
+ - Game button [CSS](https://getcssscan.com/css-buttons-examples) code
+ - Event listener - [autofocus on next input](https://stackoverflow.com/questions/15595652/focus-next-input-once-reaching-maxlength-value)
 
 ## Acknowledgments
 I would like to take the opportunity to thank:

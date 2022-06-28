@@ -257,7 +257,6 @@ const nextRound = () => {
 };
 // Event Handlers
 document.addEventListener('DOMContentLoaded', () => {
-    // https://stackoverflow.com/questions/15595652/focus-next-input-once-reaching-maxlength-value
     document.getElementById('guess-inputs').onkeyup = function (e) {
         var target = e.srcElement;
         var maxLength = parseInt(target.attributes.maxlength.value, 10);
