@@ -6,7 +6,7 @@ let state = {
     currentRd: 0,
     noOfRounds: 2,
     currentGuess: 0,
-    noOfGuesses: 5,
+    noOfGuesses: 6,
     words: [],
     correctAnswer: '', 
     score: 0,   
@@ -36,7 +36,6 @@ const createInputs = () => {
             class="letter-input"
             name="input-${i + 1}"
             maxlength="1"
-            required
             ${i === 0 && 'autofocus'}
         /> `;
         textInputs.innerHTML += inputHTML;
@@ -180,7 +179,7 @@ const getDefinition = async (word) => {
                 return res[0].meanings[0].definitions[0].definition;
             }
         }).catch(err => {
-            console.log(err);
+            throw err;
         });
         return definition;
     };

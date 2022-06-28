@@ -30,7 +30,6 @@ window.onload = function() {
           let errorDiv = document.getElementById('errors');
           errorDiv.innerHTML = "<p>Please ensure your passwords match.</p>";
         } else {
-          console.log('Validation successful!');
            // generate a five digit number for the contact_number variable
             this.contact_number.value = Math.random() * 100000 | 0;
             // these IDs from the previous steps
@@ -39,7 +38,7 @@ window.onload = function() {
                     console.log('SUCCESS!', params);
                     window.location.href = '/CI_PP2_wordle_clone/thank-you.html'
                 }, function(error) {
-                    console.log('FAILED...', error);
+                    throw error;
                 });
         }
       }

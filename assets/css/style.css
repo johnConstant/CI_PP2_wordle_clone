@@ -44,6 +44,8 @@ h6 {
 
 p {
     margin: 2rem 0;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 a {
@@ -135,7 +137,7 @@ nav > * {
 
 #active {
     color: var(--red);
-    font-weight: 500;
+    text-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.9);
 }
 
 /* Container */
