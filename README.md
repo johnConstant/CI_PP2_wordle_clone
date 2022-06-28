@@ -312,7 +312,8 @@ The W3C Jigsaw CSS Validation Service was used to validate the CSS of the websit
 </details>
 
 ### JavaScript Validation
-JSHint Static Code Analysis Tool for JavaScript was used to validate the Javascript files. No significant issues were found.
+JSHint Static Code Analysis Tool for JavaScript was used to validate the Javascript files. No significant issues were found. contact.js contined one alert about an undefined variable but this variable id defined within the emailJS library.
+
 <details><summary>index.js</summary>
 <img src="docs/validation/JS_validation_JS.png">
 </details>
@@ -510,7 +511,7 @@ The website was tested on the following browsers:
 
 ## Exceptions
 - A 404 error appears in the console when there is no definition of the word available on [dictionaryapi.dev](https://dictionaryapi.dev/). The API returns an object in its response and the user is displayed feedback, letting them know that no definition is available. 
-- 404 url available [here](https://api.dictionaryapi.dev/api/v2/entries/en/tomatoey)
+    - 404 url available [here](https://api.dictionaryapi.dev/api/v2/entries/en/tomatoey), response.message is returned to the player.
 
 <details><summary>Screenshots</summary>
 <img src="docs/features/404_error.png">
