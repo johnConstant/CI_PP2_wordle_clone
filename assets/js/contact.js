@@ -24,7 +24,7 @@ window.onload = function() {
         };
         let p1 = document.getElementById('password').value;
         let p2 = document.getElementById('confirm-password').value;
-      
+        // check if password fields match
         if (p1 !== p2) {
           let errorDiv = document.getElementById('errors');
           errorDiv.innerHTML = "<p>Please ensure your passwords match.</p>";
@@ -36,7 +36,7 @@ window.onload = function() {
             emailjs.send("wordle_clone","wordle_clone_template", params)
                 .then(function() {
                     console.log('SUCCESS!', params);
-                    window.location.href = '/thank-you.html'
+                    window.location.href = '/CI_PP2_wordle_clone/thank-you.html'
                 }, function(error) {
                     console.log('FAILED...', error);
                 });

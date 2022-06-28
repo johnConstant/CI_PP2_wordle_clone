@@ -95,7 +95,7 @@ section {
 nav {
     min-height: 10vh;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     justify-content: center;
     align-items: center;
     letter-spacing: 2px;
@@ -506,7 +506,7 @@ footer a:hover {
 #contact-form {
     display: flex;
     flex-direction: column;
-    width: 70%;
+    width: 50%;
 }
 
 #contact-form input {
@@ -527,7 +527,8 @@ footer a:hover {
 }
 
 #submit-btn-container {
-    width: 40%;
+    width: 60%;
+    margin: 0 auto;
 }
 
 #submit-btn-container input[type="submit"] {
@@ -631,6 +632,10 @@ footer a:hover {
 
     .box {
         height: 3.4rem;
+    }
+
+    #contact-form {
+        width: 80%;
     }
 }
 
