@@ -302,22 +302,6 @@ textarea:focus {
     font-weight: 700;
 }
 
-.wrong {
-    color: #333;
-}
-
-.almost {
-    color: orange;
-    background-color: #f2ddb6;
-    border-bottom: 0.3rem solid orange;
-}
-
-.correct {
-    color: green;
-    background-color: #c4ecc4;
-    border-bottom: 0.3rem solid green;
-}
-
 .correct-answer {
     font-size: 2.4rem;
     padding: 2rem;
@@ -434,11 +418,13 @@ textarea:focus {
 
 .almost {
     color: var(--almost);
+    background-color: #f2ddb6;
     border-bottom: 0.3rem solid var(--almost);
 }
 
 .correct {
     color: green;
+    background-color: #c4ecc4;
     border-bottom: 0.3rem solid green;
 }
 
@@ -449,8 +435,6 @@ footer {
     min-height: 15vh;
     color: white;
     font-weight: bold;
-    /* display: grid;
-    grid-template-columns: 1fr 2fr 1fr; */
     align-items: center;
     justify-items: center;
 }
@@ -632,6 +616,10 @@ footer a:hover {
         width: 3rem;
         height: 3rem;
         margin: 0.2rem;
+    }
+
+    .box {
+        height: 3.4rem;
     }
 }
 

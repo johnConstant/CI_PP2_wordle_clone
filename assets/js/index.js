@@ -1,7 +1,7 @@
 /*jshint esversion: 8 */
 
 let data = localStorage.getItem('state');
-let state = data ? JSON.parse(data) : {
+let state = data !== null ? JSON.parse(data) : {
     wordLength: 5,
     currentRd: 0,
     noOfRounds: 2,
@@ -165,13 +165,16 @@ const updateCounters = () => {
  * @param {string} word - search term for API query
  */
 const getDefinition = async (word) => {
+    // Definition API Call
     let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
     let definition = await fetch(url)
         .then((res) => res.json())
         .then((res) => {
             if (res.title === 'No Definitions Found') {
+                // Return message if no definition is found
                 return res.message;
             } else {
+                // Returns answer definition
                 return res[0].meanings[0].definitions[0].definition;
             }
         }).catch(err => {
@@ -217,7 +220,8 @@ const makeGuess = async () => {
     }
 };
 /**
- * 
+ * checks if you have remaining rounds and displays game over screen if not
+ * If rounds remain, reset UI and update correct answer
  * @returns 
  */
 const nextRound = () => {
@@ -268,6 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     };
+    // Enter key submit function
     document.addEventListener('keypress', function (e) {
         if (e.key === 'Enter' && (state.currentGuess < state.noOfGuesses)) {
           makeGuess();
