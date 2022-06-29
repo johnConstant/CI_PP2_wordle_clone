@@ -47,7 +47,6 @@ const createInputs = () => {
  * @returns array of words
  */
  const getWords = async () => {
-    const getWords = async () => {
         let url = `https://random-words5.p.rapidapi.com/getMultipleRandom?count=${state.noOfRounds}&wordLength=${state.wordLength}`;
         let { words } = state;
         const options = {
@@ -68,7 +67,7 @@ const createInputs = () => {
     
         return words;
     };
-};
+
 
 /**
  * Start game function runs upon DOMContentLoaded event
