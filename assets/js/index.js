@@ -47,16 +47,27 @@ const createInputs = () => {
  * @returns array of words
  */
  const getWords = async () => {
-    let url = `https://random-word-api.herokuapp.com/word?length=${state.wordLength}&number=${state.noOfRounds}&lang=en`;
-    let { words } = state;
-    words = await fetch(url)
-    .then(response => response.json())
-    .then(data => data);
-    // remove spinner when words have been fetched
-    document.getElementsByClassName('loader')[0].classList.add('display-none');
-    document.getElementById('game-container').classList.remove('display-none');
+    const getWords = async () => {
+        let url = `https://random-words5.p.rapidapi.com/getMultipleRandom?count=${state.noOfRounds}&wordLength=${state.wordLength}`;
+        let { words } = state;
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key':
+                    'f714f0513dmsh1b6426f5d574cbep1b183djsn4f4341b7f111',
+                'X-RapidAPI-Host': 'random-words5.p.rapidapi.com',
+            },
+        };
+        words = await fetch(url, options)
+            .then((response) => response.json())
+            .then((response) => response)
+            .catch((err) => console.error(err));
+        // remove spinner when words have been fetched
+        document.getElementsByClassName('loader')[0].classList.add('display-none');
+        document.getElementById('game-container').classList.remove('display-none');
     
-    return words;
+        return words;
+    };
 };
 
 /**
