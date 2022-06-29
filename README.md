@@ -212,10 +212,10 @@ The site consists of six pages and nine features
 <img src="docs/features/feature_guessInputs.png">
 </details>
 <details><summary>Game screen - form validation</summary>
-<img src="docs/features/feature_gameValidation.png">
+<img src="docs/features/feature_validation_1.png">
 </details>
 <details><summary>Game screen - previous guess</summary>
-<img src="docs/features/feature_prevGuesses.png">
+<img src="docs/features/feature_prevGuesses_1.png">
 </details>
 
 ### End of round screen
