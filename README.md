@@ -556,6 +556,7 @@ You can clone the repository by following these steps:
 ### Code
  - Game button [CSS](https://getcssscan.com/css-buttons-examples) code
  - Event listener - [autofocus on next input](https://stackoverflow.com/questions/15595652/focus-next-input-once-reaching-maxlength-value)
+ - getWords API call - [code](https://rapidapi.com/sheharyar566/api/random-words5/)
 
 ## Acknowledgments
 I would like to take the opportunity to thank:
