@@ -47,17 +47,16 @@ const createInputs = () => {
  * @returns array of words
  */
  const getWords = async () => {
-    // let url = `https://random-word-api.herokuapp.com/word?length=${state.wordLength}&number=${state.noOfRounds}&lang=en`;
-    // let { words } = state;
-    // words = await fetch(url)
-    // .then(response => response.json())
-    // .then(data => data);
+    let url = `https://random-word-api.herokuapp.com/word?length=${state.wordLength}&number=${state.noOfRounds}&lang=en`;
+    let { words } = state;
+    words = await fetch(url)
+    .then(response => response.json())
+    .then(data => data);
     // remove spinner when words have been fetched
     document.getElementsByClassName('loader')[0].classList.add('display-none');
     document.getElementById('game-container').classList.remove('display-none');
     
-    // return words;
-    return ['horse', 'scrap']
+    return words;
 };
 
 /**
