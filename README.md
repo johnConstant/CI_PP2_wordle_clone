@@ -548,7 +548,7 @@ You can clone the repository by following these steps:
 ## Credits
 
 ### Media
-- [Random Word Generator](https://random-word-api.herokuapp.com/word?length=6&number=6)
+- [Random Word Generator](https://rapidapi.com/sheharyar566/api/random-words5/)
 - [Dictionary API](https://api.dictionaryapi.dev/api/v2/entries/en/house) 
 - [Sound Effect]('assets/sounds/correct_soundEffect.mp3'): <a href='https://www.dreamstime.com/royalty-free-sound-fx-correct-ding-correct-answer-ding-designed-games-apps-audio137523215'>Correct answer ding</a>
 - [Background Image](https://elements.envato.com/geometric-textured-backgrounds-MZ9YM8)
